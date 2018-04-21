@@ -20,8 +20,6 @@ public class LinkedListCycle {
             if (fast == slow) {
                 return true;
             }
-        }
-        return false;
+        }return false;
     }
-
 }
