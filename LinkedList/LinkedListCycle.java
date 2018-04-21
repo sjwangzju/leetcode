@@ -1,6 +1,6 @@
 public class LinkedListCycle {
 
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
         ListNode(int x) {
@@ -20,6 +20,17 @@ public class LinkedListCycle {
             if (fast == slow) {
                 return true;
             }
-        }return false;
+        }
+        return false;
+    }
+
+    public static void main(String args[]){
+        ListNode l1 = new ListNode(0);
+        ListNode l2 = new ListNode(1);
+        ListNode l3 = new ListNode(2);
+        l1.next = l3;
+        l2.next = l1;
+        l3.next = l2;
+        System.out.println(new LinkedListCycle().hasCycle(l3));
     }
 }
