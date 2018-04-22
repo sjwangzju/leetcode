@@ -15,7 +15,11 @@ public class ReverseLinkedList {
         }
     }
 
-    /**Iteratively*/
+    /**
+     * Iteratively
+     * @param head
+     * @return
+     */
     public ListNode reverseListIteratively(ListNode head) {
         ListNode cur = head;
         ListNode temp = null;
@@ -28,7 +32,11 @@ public class ReverseLinkedList {
         return temp;
     }
 
-    /**Recursively*/
+    /**
+     * Recursively
+     * @param head
+     * @return
+     */
     public ListNode reverseListRecursively(ListNode head) {
         if(head == null || head.next == null) return head;
         ListNode L = new ReverseLinkedList().reverseListRecursively(head.next);
@@ -45,6 +53,7 @@ public class ReverseLinkedList {
         l2.next = l1;
         l3.next = l2;
         new ReverseLinkedList().reverseListRecursively(l3);
+        new ReverseLinkedList().reverseListIteratively(l3);
     }
 
 }
