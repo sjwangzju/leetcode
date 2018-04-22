@@ -1,5 +1,10 @@
 package LinkedList;
 
+/**
+ * Created by sjwang on 22/04/2018.
+ * Given a linked list, determine if it has a cycle in it.
+ */
+
 public class LinkedListCycle {
 
     static class ListNode {
