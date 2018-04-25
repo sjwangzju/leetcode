@@ -30,12 +30,8 @@ public class MostCommonWord {
         for(String str : words){
             String s = getWord(str);
             if(! Arrays.asList(banned).contains(s)){
-                if(M.containsKey(s)){
-                    M.put(s, M.get(s) + 1);
-                }
-                else{
-                    M.put(s, 1);
-                }
+                if(M.containsKey(s)) M.put(s, M.get(s) + 1);
+                else M.put(s, 1);
             }
         }
         int max = 0; String re = "";
