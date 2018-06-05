@@ -1,7 +1,7 @@
 package Math;
 
 /**
- * Created by sjwang on 30/04/2018.
+ * Created by sjwang on 04/30/2018.
  * Given an integer n, return the number of trailing zeroes in n!.
  *
  * Example 1:
