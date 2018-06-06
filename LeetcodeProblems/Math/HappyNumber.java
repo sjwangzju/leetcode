@@ -1,7 +1,7 @@
 package Math;
 
 /**
- * Created by sjwang on 28/04/2018.
+ * Created by sjwang on 04/28/2018.
  * Write an algorithm to determine if a number is "happy".
  *
  * A happy number is a number defined by the following process:
