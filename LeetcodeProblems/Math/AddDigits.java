@@ -1,7 +1,7 @@
 package Math;
 
 /**
- * Created by sjwang on 28/04/2018.
+ * Created by sjwang on 04/28/2018.
  * Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
  *
  * For example:
