@@ -1,7 +1,7 @@
 package LinkedList;
 
 /**
- * Created by sjwang on 22/04/2018.
+ * Created by sjwang on 04/22/2018.
  * Merge two sorted linked lists and return it as a new list.
  * The new list should be made by splicing together the nodes of the first two lists.
  *
@@ -98,4 +98,5 @@ public class MergeTwoSortedLists {
         new MergeTwoSortedLists().mergeTwoListsRecursively(l3, l6);
         new MergeTwoSortedLists().mergeTwoListsIteratively(l3, l6);
     }
+
 }
