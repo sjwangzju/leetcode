@@ -1,7 +1,7 @@
 package LinkedList;
 
 /**
- * Created by sjwang on 22/04/2018.
+ * Created by sjwang on 04/22/2018.
  * Write a program to find the node at which the intersection of two singly linked lists begins.
  *
  *
