@@ -1,7 +1,7 @@
 package LinkedList;
 
 /**
- * Created by sjwang on 22/04/2018.
+ * Created by sjwang on 04/22/2018.
  * Given a linked list, determine if it has a cycle in it.
  */
 
