@@ -1,7 +1,7 @@
 package LinkedList;
 
 /**
- * Created by sjwang on 22/04/2018.
+ * Created by sjwang on 04/22/2018.
  * Given a singly linked list, determine if it is a palindrome.
  */
 
@@ -42,4 +42,5 @@ public class PalindromeLinkedList {
         l3.next = l2;
         System.out.println(new PalindromeLinkedList().isPalindrome(l3));
     }
+
 }
