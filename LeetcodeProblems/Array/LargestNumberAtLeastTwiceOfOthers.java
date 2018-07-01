@@ -3,7 +3,7 @@ package Array;
 import java.util.Arrays;
 
 /**
- * Created by sjwang on 13/05/2018.
+ * Created by sjwang on 05/13/2018.
  * In a given integer array nums, there is always exactly one largest element.
  *
  * Find whether the largest element in the array is at least twice as much as every other number in the array.
