@@ -3,7 +3,7 @@ package Array;
 import java.util.Arrays;
 
 /**
- * Created by sjwang on 11/05/2018.
+ * Created by sjwang on 05/11/2018.
  * Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
  *
  * You may assume that the array is non-empty and the majority element always exist in the array.
