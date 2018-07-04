@@ -1,7 +1,7 @@
 package Array;
 
 /**
- * Created by sjwang on 11/05/2018.
+ * Created by sjwang on 05/11/2018.
  * Given a binary array, find the maximum number of consecutive 1s in this array.
  *
  * Example 1:
