@@ -1,7 +1,7 @@
 package Array;
 
 /**
- * Created by sjwang on 10/05/2018.
+ * Created by sjwang on 05/10/2018.
  * We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
  *
  * Now given a string represented by several bits. Return whether the last character must be a one-bit character or not.
