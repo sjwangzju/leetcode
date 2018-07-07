@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sjwang on 09/05/2018.
+ * Created by sjwang on 05/09/2018.
  * In a string S of lowercase letters, these letters form consecutive groups of the same character.
  *
  * For example, a string like S = "abbxxxxzyy" has the groups "a", "bb", "xxxx", "z" and "yy".
