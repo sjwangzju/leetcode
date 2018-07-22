@@ -1,7 +1,5 @@
 package Array;
 
-import java.util.ArrayList;
-
 /**
  * Created by sjwang on 07/22/2018.
  * Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
