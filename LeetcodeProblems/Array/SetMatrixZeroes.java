@@ -1,9 +1,5 @@
 package Array;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 /**
  * Created by sjwang on 07/23/2018.
  *
