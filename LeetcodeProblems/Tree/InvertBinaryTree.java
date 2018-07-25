@@ -20,31 +20,14 @@ package Tree;
  *   7     2
  *  / \   / \
  * 9   6 3   1
- *
- * if(root == null) return root;
- *  if(root.left == null) {
- *  if(root.right == null) return root;
- *  else return invertTree(root.right);
- *  }
- *  else if(root.right == null) return invertTree(root.left);
- *  else{
- *  TreeNode N = root.left;
- *  root.left = root.right;
- *  root.right = N;
- *  invertTree(root.left);
- *  invertTree(root.right);
- *  }
- *  return root;
  */
 public class InvertBinaryTree {
     public TreeNode invertTree(TreeNode root) {
-        if(root == null || root.left ==  null && root.right == null) return root;
+        if(root == null) return root;
         else{
             TreeNode N = root.left;
-            root.left = root.right;
-            root.right = N;
-            invertTree(root.left);
-            invertTree(root.right);
+            root.left = invertTree(root.right);
+            root.right = invertTree(N);
         }
         return root;
     }
