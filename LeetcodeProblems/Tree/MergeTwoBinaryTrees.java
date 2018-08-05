@@ -1,7 +1,7 @@
 package Tree;
 
 /**
- * Created by sjwang on 23/04/2018.
+ * Created by sjwang on 04/23/2018.
  * Given two binary trees and imagine that when you put one of them to cover the other,
  * some nodes of the two trees are overlapped while the others are not.
  *
