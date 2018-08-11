@@ -2,7 +2,7 @@ package Math;
 import java.util.Arrays;
 
 /**
- * Created by sjwang on 28/04/2018.
+ * Created by sjwang on 04/28/2018.
  * Given an integer array, find three numbers whose product is maximum and output the maximum product.
  *
  * Example 1:
