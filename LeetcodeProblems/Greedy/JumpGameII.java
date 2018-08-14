@@ -1,7 +1,5 @@
 package Greedy;
 
-import java.util.Arrays;
-
 /**
  * Created by sjwang on 08/14/2018.
  *
