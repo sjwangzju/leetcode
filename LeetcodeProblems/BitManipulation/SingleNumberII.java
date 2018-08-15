@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by sjwang on 08/04/2018
+ * Created by sjwang on 08/04/2018.
  *
  * Given a non-empty array of integers, every element appears three times except for one, which appears exactly once. Find that single one.
  *
