@@ -2,6 +2,7 @@ package DepthFirstSearch;
 
 /**
  * Created by sjwang on 08/03/2018.
+ *
  * Given a binary tree, determine if it is a valid binary search tree (BST).
  *
  * Assume a BST is defined as follows:
