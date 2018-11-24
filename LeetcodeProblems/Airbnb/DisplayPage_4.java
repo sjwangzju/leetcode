@@ -1,15 +1,14 @@
 package Airbnb;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DisplayPage_4 {
-    public String[] reorder(String[] input, int n) {
+
+    // Solution 1: for loop
+    public List<String> reorder_1(List<String> input, int n) {
         List<String> inputList = new LinkedList<>();
         List<String> outputList = new LinkedList<>();
-        int pageNum = input.length / n;
+        int pageNum = input.size() / n;
 
         for (String s: input) {
             inputList.add(s);
@@ -43,25 +42,59 @@ public class DisplayPage_4 {
         for (int i = 0; i < inputList.size(); i++) {
             outputList.add(inputList.get(i));
         }
-        return outputList.toArray(new String[outputList.size()]);
+        return outputList;
+    }
+
+    // Solution 2: using iterator
+    public List<String> reorder_2(List<String> input, int n) {
+        List<String> output = new ArrayList<>();
+        if (input == null || input.size() == 0) {
+            return output;
+        }
+        Iterator<String> iter = input.iterator();
+        List<String> hostID = new ArrayList<>();
+        boolean reachEnd = false;
+
+        while(input.size() > 0) {
+            String tmp = iter.next();
+            String host_id = tmp.split(",")[0];
+            if (!hostID.contains(host_id) || reachEnd) {
+                output.add(tmp);
+                hostID.add(host_id);
+                iter.remove();
+            }
+            if (hostID.size() == n) {
+                hostID.clear();
+                reachEnd = false;
+                if (!input.isEmpty()) {
+                    output.add(" ");
+                }
+                iter = input.iterator();
+            }
+            if (!iter.hasNext()) {
+                reachEnd = true;
+                iter = input.iterator();
+            }
+        }
+        return output;
     }
 
     public static void main(String[] args) {
-        String[] input = new String[13];
-        input[0] = "1,28,310.6,SF";
-        input[1] = "4,5,204.1,SF";
-        input[2] = "20,7,203.2,Oakland";
-        input[3] = "6,8,202.2,SF";
-        input[4] = "6,10,199.1,SF";
-        input[5] = "1,16,190.4,SF";
-        input[6] = "6,29,185.2,SF";
-        input[7] = "7,20,180.1,SF";
-        input[8] = "6,21,162.1,SF";
-        input[9] = "2,18,161.2,SF";
-        input[10] = "2,30,149.1,SF";
-        input[11] = "3,76,146.2,SF";
-        input[12] = "2,14,141.1,San Jose";
-        String[] output = new DisplayPage_4().reorder(input, 5);
+        List<String> input = new ArrayList<>();
+        input.add("1,28,310.6,SF");
+        input.add("4,5,204.1,SF");
+        input.add("20,7,203.2,Oakland");
+        input.add("6,8,202.2,SF");
+        input.add("6,10,199.1,SF");
+        input.add("1,16,190.4,SF");
+        input.add("6,29,185.2,SF");
+        input.add("7,20,180.1,SF");
+        input.add("6,21,162.1,SF");
+        input.add("2,18,161.2,SF");
+        input.add("2,30,149.1,SF");
+        input.add("3,76,146.2,SF");
+        input.add("2,14,141.1,San Jose");
+        List<String> output = new DisplayPage_4().reorder_2(input, 5);
         for (String s: output) {
             System.out.println(s);
         }
