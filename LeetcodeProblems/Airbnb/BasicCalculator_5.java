@@ -52,7 +52,7 @@ public class BasicCalculator_7 {
                 number = 0;
             }
         }
-        
+
         // don't forget the last number
         if (number != 0) {
             res += sign * number;
