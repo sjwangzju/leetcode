@@ -7,7 +7,7 @@ import java.util.Stack;
  *
  * s = s.replaceAll("\\s", "") -- remove all the spaces and tabs in string s
  */
-public class BasicCalculator_7 {
+public class BasicCalculator_5 {
 
     /**
      * lc224 -- calculator with ( ) + - and positive numbers
@@ -102,7 +102,7 @@ public class BasicCalculator_7 {
     public static void main(String[] args) {
         String input1 = " 5 +   6 - (12+ 2 )- 1   ";
         String input2 = "3 - 5 * 2 / 3 +  1";
-        int res = new BasicCalculator_7().calculatorI(input1);
+        int res = new BasicCalculator_5().calculatorI(input1);
         System.out.println(res);
     }
 }
