@@ -24,29 +24,30 @@ public class BasicCalculator_7 {
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
             if (Character.isDigit(ch)) {
-                number = number * 10 + ch - '0';
-            }
-            if (ch == '+') {
-                res += sign * number;
+                number = ch - '0';
+                while (i + 1 < input.length() && Character.isDigit(input.charAt(i + 1))) {
+                    number = number * 10 + input.charAt(i + 1) - '0';
+                    i++;
+                }
+            } else {
+                switch (ch) {
+                    case '+':
+                        res += sign * number;
+                        sign = 1; break;
+                    case '-':
+                        res += sign * number;
+                        sign = -1; break;
+                    case '(':
+                        stack.push(res);
+                        stack.push(sign);
+                        res = 0;
+                        sign = 1; break;
+                    case ')':
+                        res += sign * number;
+                        res *= stack.pop();
+                        res += stack.pop(); break;
+                }
                 number = 0;
-                sign = 1;
-            }
-            if (ch == '-') {
-                res += sign * number;
-                number = 0;
-                sign = -1;
-            }
-            if (ch == '(') {
-                stack.push(res);
-                stack.push(sign);
-                res = 0;
-                sign = 1;
-            }
-            if (ch == ')') {
-                res += sign * number;
-                number = 0;
-                res *= stack.pop();
-                res += stack.pop();
             }
         }
         if (number != 0) {
