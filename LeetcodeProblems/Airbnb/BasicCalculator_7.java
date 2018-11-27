@@ -16,6 +16,8 @@ public class BasicCalculator_7 {
      */
     public int calculatorI(String input) {
         input = input.replaceAll("\\s", "");
+
+        // stack is used to save the res and sign before each (
         Stack<Integer> stack = new Stack<>();
         int number = 0;
         int res = 0;
@@ -50,6 +52,8 @@ public class BasicCalculator_7 {
                 number = 0;
             }
         }
+        
+        // don't forget the last number
         if (number != 0) {
             res += sign * number;
         }
@@ -63,6 +67,9 @@ public class BasicCalculator_7 {
      */
     public int calculatorII(String input) {
         input = input.replaceAll("\\s", "");
+
+        // stack is used to save the value between + and - . Try to integrate the part that contains * or /
+        // e.g. 1 + (2 * 3 / 7) - 5
         Stack<Integer> stack = new Stack<>();
         char sign = '+';
         int res = 0;
