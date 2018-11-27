@@ -2,6 +2,9 @@ package Airbnb;
 
 import java.util.*;
 
+/**
+ * time complexity: O(nL^2), L is the mean length of word, n is the num of words.
+ */
 public class PalindromePairs_8 {
     public List<List<Integer>> findPairs(String[] input) {
         List<List<Integer>> res = new LinkedList<>();
@@ -63,9 +66,9 @@ public class PalindromePairs_8 {
     }
 
     public static void main(String[] args) {
-        String[] s1 = {"abcd", "dcba", "lls", "s", "sssll"};
-//        String[] s2 = {"a", ""};
-        List<List<Integer>> res = new PalindromePairs_8().findPairs(s1);
+//        String[] s1 = {"abcd", "dcba", "lls", "s", "sssll"};
+        String[] s2 = {"a", ""};
+        List<List<Integer>> res = new PalindromePairs_8().findPairs(s2);
 
         for (List<Integer> list: res) {
             System.out.print(list.get(0) + "  ");
