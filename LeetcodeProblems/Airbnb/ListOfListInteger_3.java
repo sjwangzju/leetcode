@@ -30,7 +30,7 @@ public class ListOfListInteger_3 implements Iterator<Integer> {
 
     @Override
     public void remove() {
-        while(colIterator == null && rowIterator.hasNext()) {
+        while((colIterator == null || !colIterator.hasNext()) && rowIterator.hasNext()) {
             colIterator = rowIterator.next().iterator();
         }
         if (colIterator != null) {
@@ -41,7 +41,7 @@ public class ListOfListInteger_3 implements Iterator<Integer> {
     public static void main(String[] args) {
         List<List<Integer>> list = new ArrayList<>();
         List<Integer> l1= new ArrayList<>();
-        l1.add(1); l1.add(2);
+        l1.add(1); l1.add(2); l1.add(null);
         List<Integer> l2= new ArrayList<>();
         l2.add(3);
         List<Integer> l3= new ArrayList<>();
@@ -51,17 +51,14 @@ public class ListOfListInteger_3 implements Iterator<Integer> {
         ListOfListInteger_3 l = new ListOfListInteger_3(list);
         System.out.println(l.hasNext());
         System.out.println(l.next());
+        //l.remove();
         System.out.println(l.hasNext());
         System.out.println(l.next());
-        l.remove();
+        //l.remove();
         System.out.println(l.hasNext());
         System.out.println(l.next());
-
-        for (List<Integer> L: list) {
-            for (int n: L) {
-                System.out.print(n + " ");
-            }
-        }
+        System.out.println(l.hasNext());
+        System.out.println(l.next());
     }
 
 }
