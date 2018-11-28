@@ -3,6 +3,9 @@ package Airbnb;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * if in quote, two quotes should be added
+ */
 public class CSVParser_11 {
     public String CSVParser(String input) {
         boolean inQuote = false;
@@ -14,6 +17,7 @@ public class CSVParser_11 {
                 if (input.charAt(i) == '\"') {
                     if (i + 1 < input.length() && input.charAt(i + 1) == '\"') {
                         sb.append('\"');
+                        i++;
                     } else {
                         inQuote = false;
                     }
@@ -44,7 +48,7 @@ public class CSVParser_11 {
         String s2 = "Jane,Roberts,janer@msn.com,\"San Francisco, CA\",0";
         System.out.println(new CSVParser_11().CSVParser(s2));
 
-        String s3 = "\"Alexandra \"\"Alex\"\"\",Menendez,alex.menendez@gmail.com,Miami,1 \"\"\"Alexandra Alex\"\"\"";
+        String s3 = "\"Alexandra \"\"Alex\"\"\",Menendez,alex.menendez@gmail.com,Miami,1 \"\"\"\"\"Alexandra Alex\"\"\"\"\"";
         System.out.println(new CSVParser_11().CSVParser(s3));
     }
 }
