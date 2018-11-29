@@ -2,7 +2,7 @@ package Airbnb;
 
 import java.util.*;
 
-public class Army {
+public class SimulateDiplomacy_16 {
     public List<String> battle(List<String> actions) {
         Map<String, List<String>> location = new HashMap<>();
         Map<String, Integer> strength = new HashMap<>();
@@ -90,7 +90,7 @@ public class Army {
 //        actions.add("D Warsaw Hold");
 //        actions.add("C Prussia Move Munich");
 
-        List<String> ret = new Army().battle(actions);
+        List<String> ret = new SimulateDiplomacy_16().battle(actions);
         for (String s: ret) {
             System.out.println(s);
         }
