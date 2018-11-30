@@ -8,7 +8,7 @@ public class RoundPrices_18 {
         List<Integer> roundPrices = new LinkedList<>();
         List<Float> diff = new LinkedList<>();
         float oriSum = 0;
-        float floorSum = 0;
+        int floorSum = 0;
 
         for (Float price: prices) {
             oriSum += price;
