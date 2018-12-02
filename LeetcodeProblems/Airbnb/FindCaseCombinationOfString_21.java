@@ -125,16 +125,54 @@ public class FindCaseCombinationOfString_21 {
         }
     }
 
+    /**
+     * AB_21
+     * @param input
+     * @return
+     */
+    public List<String> permutationWithCases(String input) {
+        List<String> res = new ArrayList<>();
+        if (input == null) return res;
+        char[] chs = input.toCharArray();
+        getPermutationWithCases(res, new StringBuilder(), chs, 0);
+        return res;
+    }
+
+    public void getPermutationWithCases(List<String> res, StringBuilder cur, char[] chs, int start) {
+        if (cur.length() == chs.length) {
+            res.add(cur.toString());
+            return;
+        }
+        for (int i = start; i < chs.length; i++) {
+            if (i == cur.length()) {
+                // add lowercase letter
+                cur.append(Character.toLowerCase(chs[i]));
+                getPermutationWithCases(res, cur, chs, start + 1);
+                cur.deleteCharAt(cur.length() - 1);
+
+                // add uppercase letter
+                cur.append(Character.toUpperCase(chs[i]));
+                getPermutationWithCases(res, cur, chs, start + 1);
+                cur.deleteCharAt(cur.length() - 1);
+            }
+        }
+    }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3};
-        List<List<Integer>> res = new ArrayList<>();
-        res = new FindCaseCombinationOfString_21().subsetsWithDup(nums);
-        for (List<Integer> list: res) {
-            for (int n: list) {
-                System.out.print(n + " ");
-            }
-            System.out.println();
+//        int[] nums = {1,2,3};
+//        List<List<Integer>> res = new ArrayList<>();
+//        res = new FindCaseCombinationOfString_21().subsetsWithDup(nums);
+//        for (List<Integer> list: res) {
+//            for (int n: list) {
+//                System.out.print(n + " ");
+//            }
+//            System.out.println();
+//        }
+
+        String input = "abcd";
+        List<String> res = new FindCaseCombinationOfString_21().permutationWithCases(input);
+        for (String s: res) {
+            System.out.println(s);
         }
     }
 }
