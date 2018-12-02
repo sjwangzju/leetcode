@@ -94,11 +94,42 @@ public class FindCaseCombinationOfString_21 {
         }
     }
 
+    /**
+     * lc90
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        if (nums == null || nums.length == 0) {
+            return res;
+        }
+        Arrays.sort(nums);
+        getSubsetsWithDup(res, cur, nums, 0, new boolean[nums.length]);
+        return res;
+    }
+
+    public void getSubsetsWithDup(List<List<Integer>> res, List<Integer> cur, int[] nums, int start, boolean[] used) {
+        res.add(new ArrayList<>(cur));
+        if (start > nums.length - 1) {
+            return;
+        }
+        for (int i = start; i < nums.length; i++) {
+            if (used[i] || i > 0 && (nums[i] == nums[i - 1] && !used[i - 1] || cur.size() > 0 && nums[i] < cur.get(cur.size() - 1))) continue;
+            cur.add(nums[i]);
+            used[i] = true;
+            getSubsetsWithDup(res, cur, nums, start + 1, used);
+            used[i] = false;
+            cur.remove(cur.size() - 1);
+        }
+    }
+
 
     public static void main(String[] args) {
         int[] nums = {1,2,3};
         List<List<Integer>> res = new ArrayList<>();
-        res = new FindCaseCombinationOfString_21().subsets(nums);
+        res = new FindCaseCombinationOfString_21().subsetsWithDup(nums);
         for (List<Integer> list: res) {
             for (int n: list) {
                 System.out.print(n + " ");
