@@ -159,20 +159,20 @@ public class FindCaseCombinationOfString_21 {
     }
 
     public static void main(String[] args) {
-//        int[] nums = {1,2,3};
-//        List<List<Integer>> res = new ArrayList<>();
-//        res = new FindCaseCombinationOfString_21().subsetsWithDup(nums);
-//        for (List<Integer> list: res) {
-//            for (int n: list) {
-//                System.out.print(n + " ");
-//            }
-//            System.out.println();
-//        }
-
-        String input = "abc";
-        List<String> res = new FindCaseCombinationOfString_21().permutationWithCases(input);
-        for (String s: res) {
-            System.out.println(s);
+        int[] nums = {1,2,2};
+        List<List<Integer>> res = new ArrayList<>();
+        res = new FindCaseCombinationOfString_21().subsetsWithDup(nums);
+        for (List<Integer> list: res) {
+            for (int n: list) {
+                System.out.print(n + " ");
+            }
+            System.out.println();
         }
+
+//        String input = "abc";
+//        List<String> res = new FindCaseCombinationOfString_21().permutationWithCases(input);
+//        for (String s: res) {
+//            System.out.println(s);
+//        }
     }
 }
