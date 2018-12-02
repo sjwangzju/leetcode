@@ -169,7 +169,7 @@ public class FindCaseCombinationOfString_21 {
 //            System.out.println();
 //        }
 
-        String input = "abcd";
+        String input = "abc";
         List<String> res = new FindCaseCombinationOfString_21().permutationWithCases(input);
         for (String s: res) {
             System.out.println(s);
