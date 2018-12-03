@@ -53,7 +53,7 @@ public class MenuCombinationSum_22 {
 
         for (List<Double> list: res) {
             for (Double d: list) {
-                System.out.println(d + " ");
+                System.out.print(d + " ");
             }
             System.out.println();
         }
