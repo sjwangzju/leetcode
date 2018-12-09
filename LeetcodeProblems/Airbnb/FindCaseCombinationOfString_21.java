@@ -144,7 +144,7 @@ public class FindCaseCombinationOfString_21 {
      * find combination sum
      *
      * run time: O(2^n)
-     * space: target / min(nums[])
+     * space: O(2^n)
      */
 
     /**
