@@ -28,7 +28,7 @@ public class DictionaryLookupWithWildcard {
 
         public void insert(String word){
             Node current = root;
-            for (int i=0; i < word.length(); i++){
+            for (int i = 0; i < word.length(); i++){
                 char c = word.charAt(i);
                 Node node = current.children.get(c);
                 if(node == null){
