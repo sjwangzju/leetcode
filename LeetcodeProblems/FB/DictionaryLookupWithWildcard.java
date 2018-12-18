@@ -65,9 +65,9 @@ public class DictionaryLookupWithWildcard {
 
 
     public static void main(String[] args) {
-        List<String> input = new ArrayList<>(Arrays.asList("foo", "bar", "baz"));
+        List<String> input = new ArrayList<>(Arrays.asList("fo", "foo", "bar", "baz"));
         Trie trie = new Trie();
         trie.setup(input);
-        System.out.println(trie.isMember(".a..", trie.root));
+        System.out.println(trie.isMember("foo", trie.root));
     }
 }
