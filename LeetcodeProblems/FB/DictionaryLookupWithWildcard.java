@@ -4,16 +4,14 @@ import java.util.*;
 
 public class DictionaryLookupWithWildcard {
 
-    public Map<Integer, List<String>> dict = new HashMap<>();
-
-    public Trie trie = new Trie();
-
-    public class Trie {
+    /**
+     * runtime: O(N)
+     */
+    public static class Trie {
 
         private class Node{
             private Map<Character, Node> children;
             boolean end;
-
             public Node(){
                 children = new HashMap<>();
                 end = false;
@@ -26,86 +24,50 @@ public class DictionaryLookupWithWildcard {
             root = new Node();
         }
 
-        public void insert(String word){
-            Node current = root;
-            for (int i = 0; i < word.length(); i++){
-                char c = word.charAt(i);
-                Node node = current.children.get(c);
-                if(node == null){
-                    node = new Node();
-                    current.children.put(c, node);
+        public void setup(List<String> input) {
+            for (String s: input) {
+                Node current = root;
+                for (int i = 0; i < s.length(); i++){
+                    char c = s.charAt(i);
+                    Node node = current.children.get(c);
+                    if(node == null){
+                        node = new Node();
+                        current.children.put(c, node);
+                    }
+                    current = node;
                 }
-                current = node;
+                current.end = true;
             }
-            // Set end to true
-            current.end = true;
         }
 
-        public boolean search(String word){
-            Node current = root;
-            for(int i =0; i < word.length(); i++){
-                char c = word.charAt(i);
-                Node node = current.children.get(c);
-                if(node == null)
-                    return false;
-                current = node;
+        public boolean isMember(String word, Node root){
+
+            if (word.length() == 0) {
+                return root.end;
             }
-            return current.end;
+
+            char ch = word.charAt(0);
+            if (ch != '.') {
+                if (root.children.get(ch) != null) {
+                    return isMember(word.substring(1), root.children.get(ch));
+                }
+                return false;
+            }
+            Map<Character, Node> map = root.children;
+            for (Character c: map.keySet()) {
+                if (isMember(word.substring(1), map.get(c))) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
-
-    public void setup2(List<String> input) {
-        for (String s: input) {
-            trie.insert(s);
-        }
-    }
-
-    public boolean isMember2(String str) {
-        return trie.search(str);
-    }
-
-//    public void setup1(List<String> input) {
-//        for (String s: input) {
-//            int len = s.length();
-//            List<String> tmp = dict.getOrDefault(len, new LinkedList<>());
-//            tmp.add(s);
-//            dict.put(len, tmp);
-//        }
-//    }
-//
-//    public boolean isMember1(String str) {
-//        int len = str.length();
-//        if (!dict.containsKey(len)) {
-//            return false;
-//        }
-//        List<String> list = dict.get(len);
-//
-//        for(String s: list) {
-//            int cnt = 0;
-//            for(int i = 0; i < len; i++) {
-//                if (s.charAt(i) == str.charAt(i) || str.charAt(i) == '.') {
-//                    cnt++;
-//                }
-//            }
-//            if (cnt == len) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
 
     public static void main(String[] args) {
         List<String> input = new ArrayList<>(Arrays.asList("foo", "bar", "baz"));
-        DictionaryLookupWithWildcard LookUp = new DictionaryLookupWithWildcard();
-//        LookUp.setup1(input);
-//        System.out.println(LookUp.isMember1("foo"));
-//        System.out.println(LookUp.isMember1("f.o"));
-//        System.out.println(LookUp.isMember1("..d"));
-
-        LookUp.setup2(input);
-        System.out.println(LookUp.isMember2("foo"));
-//        System.out.println(LookUp.isMember2("f.o"));
-//        System.out.println(LookUp.isMember2("..d"));
+        Trie trie = new Trie();
+        trie.setup(input);
+        System.out.println(trie.isMember(".a..", trie.root));
     }
 }
