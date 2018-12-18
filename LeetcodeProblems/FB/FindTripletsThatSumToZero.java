@@ -3,6 +3,14 @@ package FB;
 import java.util.*;
 
 public class FindTripletsThatSumToZero {
+
+    /**
+     * 1. no duplicate elements
+     * 2. can use each element multiple times
+     * 3. output is combination, not permutation
+     */
+
+
     /**
      * bruteforce - time: O(N^3), space: O(1)
      * @param nums
