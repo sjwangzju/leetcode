@@ -10,6 +10,7 @@ public class CountAllTheIslandsInBinaryMatrix {
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] == '1') {
                     BFS(matrix, i, j);
+//                    DFS(matrix, i, j);
                     cnt++;
                 }
             }
@@ -17,9 +18,19 @@ public class CountAllTheIslandsInBinaryMatrix {
         return cnt;
     }
 
+    public void DFS(char[][] matrix, int i, int j) {
+        if (i >= 0 && i < matrix.length && j >= 0 && j < matrix[0].length && matrix[i][j] == '1') {
+            matrix[i][j] = '0';
+            DFS(matrix, i - 1, j);
+            DFS(matrix, i + 1, j);
+            DFS(matrix, i, j - 1);
+            DFS(matrix, i, j + 1);
+        }
+        return;
+    }
+
     public void BFS(char[][] matrix, int i, int j) {
         int col = matrix[0].length;
-        int row = matrix.length;
         matrix[i][j] = '0';
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(i * col + j);
@@ -27,28 +38,21 @@ public class CountAllTheIslandsInBinaryMatrix {
             int cur = q.poll();
             int m = cur / col;
             int n = cur % col;
-
             // up
-            if (m > 0 && matrix[m - 1][n] == '1') {
-                q.offer((m - 1) * col + n);
-                matrix[m - 1][n] = '0';
-            }
+            BFSHelper(matrix, q, m - 1, n);
             // down
-            if (m < row - 1 && matrix[m + 1][n] == '1') {
-                q.offer((m + 1) * col + n);
-                matrix[m + 1][n] = '0';
-            }
+            BFSHelper(matrix, q, m + 1, n);
             // left
-            if (n > 0 && matrix[m][n - 1] == '1') {
-                q.offer(m * col + (n - 1));
-                matrix[m][n - 1] = '0';
-            }
+            BFSHelper(matrix, q, m, n - 1);
             // right
-            if (n < col - 1 && matrix[m][n + 1] == '1') {
-                q.offer(m * col + (n + 1));
-                matrix[m][n + 1] = '0';
-            }
+            BFSHelper(matrix, q, m, n + 1);
+        }
+    }
 
+    public void BFSHelper(char[][] matrix, Queue<Integer> q, int i, int j) {
+        if (i >= 0 && i < matrix.length && j >= 0 && j < matrix[0].length && matrix[i][j] == '1') {
+            q.offer(i * matrix[0].length + j);
+            matrix[i][j] = '0';
         }
     }
 
