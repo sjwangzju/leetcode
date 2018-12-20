@@ -43,9 +43,8 @@ public class SerializeAndDeserializeBinaryTree {
         return res.toString();
     }
 
-
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public TreeNode deserializeBFS(String data) {
         if (data == null || data.length() == 0) return null;
         String[] str = data.split(" ");
         TreeNode root = new TreeNode(Integer.parseInt(str[0]));
@@ -74,6 +73,51 @@ public class SerializeAndDeserializeBinaryTree {
         return root;
     }
 
+
+    /**
+     * DFS
+     * @param root
+     * @return
+     */
+    public String serializeDFS(TreeNode root) {
+        if (root == null) return "";
+        StringBuilder res = new StringBuilder();
+        serialize_dfs(root, res);
+        return res.toString();
+    }
+
+    public void serialize_dfs(TreeNode root, StringBuilder res) {
+        if (root == null) {
+            res.append("null ");
+            return;
+        }
+        int val = root.val;
+        res.append(val + " ");
+        serialize_dfs(root.left, res);
+        serialize_dfs(root.right, res);
+    }
+
+    public TreeNode deserializeDFS(String data) {
+        if (data == null || data.length() == 0) return null;
+        String[] str = data.split(" ");
+        int[] index = new int[1];
+        return deserialize_dfs(str, index);
+    }
+
+    public TreeNode deserialize_dfs(String[] str, int[] index) {
+        String cur = str[index[0]];
+        if (cur.equals("null")) {
+            index[0]++;
+            return null;
+        }
+        TreeNode t = new TreeNode(Integer.parseInt(cur));
+        index[0]++;
+        t.left = deserialize_dfs(str, index);
+        t.right = deserialize_dfs(str, index);
+        return t;
+    }
+
+
     public static void main(String[] args) {
 
         // serialize
@@ -89,9 +133,11 @@ public class SerializeAndDeserializeBinaryTree {
         t21.right = t32;
         t31.left = t41;
 //        System.out.println(new SerializeAndDeserializeBinaryTree().getHeight(t1));
-        String res = new SerializeAndDeserializeBinaryTree().serializeBFS(t1);
+//        String res = new SerializeAndDeserializeBinaryTree().serializeBFS(t1);
+        String res = new SerializeAndDeserializeBinaryTree().serializeDFS(t1);
         System.out.println(res);
-        TreeNode root = new SerializeAndDeserializeBinaryTree().deserialize(res);
+////        TreeNode root = new SerializeAndDeserializeBinaryTree().deserializeBFS(res);
+        TreeNode root = new SerializeAndDeserializeBinaryTree().deserializeDFS(res);
         System.out.print(root.val);
     }
 }
