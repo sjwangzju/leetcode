@@ -43,7 +43,6 @@ public class MeetingRooms {
         if (intervals.length == 0 || intervals == null) {
             return 0;
         }
-
         Arrays.sort(intervals, new Comparator<Interval>() {
             @Override
             public int compare(Interval o1, Interval o2) {
@@ -55,9 +54,7 @@ public class MeetingRooms {
         pq.offer(intervals[0].end);
 
         for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i].start >= intervals[i - 1].end) {
-                pq.remove(intervals[i - 1].end);
-            } else if (intervals[i].start >= pq.peek()){
+            if (intervals[i].start >= pq.peek()){
                 pq.poll();
             } else {
                 cnt++;
