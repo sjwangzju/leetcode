@@ -12,8 +12,14 @@ public class SerializeAndDeserializeBinaryTree {
         }
     }
 
+    /**
+     * BFS, time: O(N), N is the number of nodes in the tree
+     * @param root
+     * @return
+     */
     // Encodes a tree to a single string.
     public String serializeBFS(TreeNode root) {
+        if (root == null) return "";
         StringBuilder res = new StringBuilder();
         Queue<TreeNode> pq = new LinkedList<>();
         pq.offer(root);
@@ -40,6 +46,7 @@ public class SerializeAndDeserializeBinaryTree {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
+        if (data == null || data.length() == 0) return null;
         String[] str = data.split(" ");
         TreeNode root = new TreeNode(Integer.parseInt(str[0]));
         Queue<TreeNode> q = new LinkedList<>();
