@@ -3,7 +3,7 @@ package FB;
 public class RearrangePositiveAndNegativeNumbers {
 
     /**
-     * Can't use extra space
+     * Can't use extra space, should keep the order
      * time: O(N^2), space: O(1)
      * @param nums
      */
