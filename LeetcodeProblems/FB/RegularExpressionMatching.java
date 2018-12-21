@@ -2,6 +2,12 @@ package FB;
 
 public class RegularExpressionMatching {
 
+    /**
+     * DFS
+     * @param s
+     * @param p
+     * @return
+     */
     public boolean isMatch(String s, String p) {
         if (p.length() == 0 || p == null) {
             return s.length() == 0 || s == null;
