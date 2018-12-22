@@ -4,16 +4,23 @@ import java.util.*;
 
 public class CourseScheduler {
 
+    /**
+     * topological sort
+     * time: O(V+E), space: O(V+E)
+     *
+     * @param numCourses
+     * @param prerequisites
+     * @return
+     */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (prerequisites.length == 0 || prerequisites == null) return true;
 
         Map<Integer, Set<Integer>> map = new HashMap<>();
         Map<Integer, Integer> indegree = new HashMap<>();
+        Map<Integer, Integer> parent = new HashMap<>();
 
-        for (int[] n: prerequisites) {
-            for (int p: n) {
-                indegree.put(p, 0);
-            }
+        for (int i = 0; i < numCourses; i++) {
+            indegree.put(i, 0);
         }
 
         for (int[] n: prerequisites) {
@@ -25,6 +32,7 @@ public class CourseScheduler {
                     s.add(c2);
                     map.put(c1, s);
                     indegree.put(c2, indegree.getOrDefault(c2, 0) + 1);
+                    parent.put(c2, c1);
                 }
             }
         }
@@ -40,6 +48,7 @@ public class CourseScheduler {
         while (!queue.isEmpty()) {
             int tmp = queue.poll();
             cnt++;
+            System.out.println(tmp);
             if (map.containsKey(tmp)) {
                 for (int n: map.get(tmp)) {
                     indegree.put(n, indegree.get(n) - 1);
@@ -49,12 +58,12 @@ public class CourseScheduler {
                 }
             }
         }
-        return cnt == indegree.size();
+        return cnt == numCourses;
     }
 
     public static void main(String[] args) {
-        int numCourses = 2;
-        int[][] prerequisites = {{1,0},{0,1}};
+        int numCourses = 6;
+        int[][] prerequisites = {{1,0},{1,3},{3,2},{3,4}};
         System.out.println(new CourseScheduler().canFinish(numCourses, prerequisites));
     }
 }
