@@ -6,6 +6,9 @@ public class SlidingPuzzle_19 {
 
     /**
      * BFS + queue, time: O((M*N)!), space: O((M*N)!)
+     *
+     * Followup: print all the paths
+     *
      * @param board
      * @return
      */
@@ -26,27 +29,44 @@ public class SlidingPuzzle_19 {
         Queue<String> q = new LinkedList<>();
         q.offer(cur);
         visited.add(cur);
+        Map<String, String> map = new HashMap<>();
+
         while (!q.isEmpty()) {
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 String tmp = q.poll();
                 if (tmp.equals(target)) {
+                    printPath(map, cnt, target);
                     return cnt;
                 }
                 int zero = tmp.indexOf('0');
 
                 List<Integer> neigh = getNeighbour(row, col, zero);
+
+                StringBuilder key = new StringBuilder(tmp);
+
                 for (int n: neigh) {
                     String ss = swap(tmp, zero, n);
                     if (!visited.contains(ss)) {
                         visited.add(ss);
                         q.offer(ss);
+                        map.put(ss, key.toString());
                     }
                 }
             }
             cnt++;
         }
         return -1;
+    }
+
+    public void printPath(Map<String, String> map, int steps, String target) {
+        String tmp = target;
+        System.out.println(tmp);
+        while (steps > 0) {
+            tmp = map.get(tmp);
+            System.out.println(tmp);
+            steps--;
+        }
     }
 
     public String swap(String s, int i, int j) {
@@ -76,7 +96,7 @@ public class SlidingPuzzle_19 {
     }
 
     public static void main(String[] args) {
-        int[][] board = {{1,2,3},{0,5,6},{4,7,8}};
+        int[][] board = {{2,3,0},{1,5,6},{4,7,8}};
         System.out.println(new SlidingPuzzle_19().slidingPuzzle(board));
 //        System.out.println(new SlidingPuzzle_19().getNeighbour(2,3,4));
     }
