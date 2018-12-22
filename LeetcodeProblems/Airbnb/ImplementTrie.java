@@ -7,9 +7,9 @@ public class ImplementTrie {
 
     public static class Node {
         boolean isEnd;
-        Map<Character, Node> children;
+        Node[] children;
         Node() {
-            this.children = new HashMap<>();
+            this.children = new Node[26];
             this.isEnd = false;
         }
     }
@@ -30,10 +30,10 @@ public class ImplementTrie {
             Node tmp = root;
             for (int i = 0; i < word.length(); i++) {
                 char ch = word.charAt(i);
-                if (!tmp.children.containsKey(ch)) {
-                    tmp.children.put(ch, new Node());
+                if (tmp.children[ch - 'a'] == null) {
+                    tmp.children[ch - 'a'] = new Node();
                 }
-                tmp = tmp.children.get(ch);
+                tmp = tmp.children[ch - 'a'];
             }
             tmp.isEnd = true;
         }
@@ -45,8 +45,8 @@ public class ImplementTrie {
             Node tmp = root;
             for (int i = 0; i < word.length(); i++) {
                 char ch = word.charAt(i);
-                if (!tmp.children.containsKey(ch)) return false;
-                tmp = tmp.children.get(ch);
+                if (tmp.children[ch - 'a'] == null) return false;
+                tmp = tmp.children[ch - 'a'];
             }
             return tmp.isEnd;
         }
@@ -58,8 +58,8 @@ public class ImplementTrie {
             Node tmp = root;
             for (int i = 0; i < prefix.length(); i++) {
                 char ch = prefix.charAt(i);
-                if (!tmp.children.containsKey(ch)) return false;
-                tmp = tmp.children.get(ch);
+                if (tmp.children[ch - 'a'] == null) return false;
+                tmp = tmp.children[ch - 'a'];
             }
             return true;
         }
