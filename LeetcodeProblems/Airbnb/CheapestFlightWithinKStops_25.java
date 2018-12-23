@@ -1,9 +1,6 @@
 package Airbnb;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class CheapestFlightWithinKStops_25 {
 
@@ -23,32 +20,46 @@ public class CheapestFlightWithinKStops_25 {
         // key: src, value: dst, price
         Map<Integer, Map<Integer, Integer>> prices = new HashMap<>();
         Map<Integer, Integer> parent = new HashMap<>();
+        Map<Integer, Integer> cost = new HashMap<>();
+        Set<Integer> cities = new HashSet<>();
 
         for (int[] flight: flights) {
             Map<Integer, Integer> map = prices.getOrDefault(flight[0], new HashMap<>());
             map.put(flight[1], flight[2]);
+            cities.add(flight[0]);
+            cities.add(flight[1]);
             prices.put(flight[0], map);
         }
 
+        for (int i: cities) {
+            if (i == src) {
+                cost.put(i, 0);
+            } else {
+                cost.put(i, Integer.MAX_VALUE);
+            }
+        }
+
         // int[] a -> a[0] accumulated price, a[1] current city, a[2] parent of curCity, a[3] remain stops
-        Queue<int[]> q = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
-        q.offer(new int[] {0, src, src, K + 1});
+        Queue<int[]> q = new PriorityQueue<>((a, b) -> cost.get(a[0]) - cost.get(b[0]));
+        q.offer(new int[]{src, K});
         while (!q.isEmpty()) {
             int[] cur = q.poll();
-            int curPrice = cur[0];
-            int curCity = cur[1];
-            int par = cur[2];
-            int curStopsLeft = cur[3];
-            parent.put(curCity, par);
+            int curCity = cur[0];
+            int curStopsLeft = cur[1];
+
             if (curCity == dst) {
-                outputRoute(curCity, parent);
-                return curPrice;
+                outputRoute(curCity, src, parent);
+                return cost.get(curCity);
             }
             if (curStopsLeft > 0) {
                 Map<Integer, Integer> adj = prices.getOrDefault(curCity, new HashMap<>());
                 for (int k: adj.keySet()) {
-                    int price = curPrice + adj.get(k);
-                    q.offer(new int[] {price, k, curCity, curStopsLeft - 1});
+                    int last = cost.getOrDefault(k, Integer.MAX_VALUE);
+                    if (cost.get(curCity) + adj.get(k) < last) {
+                        parent.put(k, curCity);
+                        q.offer(new int[]{k, curStopsLeft - 1});
+                        cost.put(k, cost.get(curCity) + adj.get(k));
+                    }
                 }
             }
         }
@@ -56,9 +67,9 @@ public class CheapestFlightWithinKStops_25 {
     }
 
     // output the optimal route
-    public void outputRoute(int city, Map<Integer, Integer> parent) {
+    public void outputRoute(int city, int src, Map<Integer, Integer> parent) {
         StringBuilder sb = new StringBuilder();
-        while (city != parent.get(city)) {
+        while (city != src) {
             sb.insert(0, "->" + city);
             city = parent.get(city);
         }
@@ -68,7 +79,7 @@ public class CheapestFlightWithinKStops_25 {
 
     public static void main(String[] args) {
         int[][] flights = {{0,1,100}, {1,2,100}, {0,2,500}};
-        int cheap = new CheapestFlightWithinKStops_25().findCheapestPrice(3, flights, 0, 2, 0);
+        int cheap = new CheapestFlightWithinKStops_25().findCheapestPrice(3, flights, 0, 2, 3);
         System.out.println("cheapest cost: " + cheap);
     }
 }
