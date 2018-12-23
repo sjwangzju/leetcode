@@ -49,6 +49,7 @@ public class SocialNetworkGraph {
         map.put("A","B");
         map.put("C","B");
         map.put("D","C");
+        map.put("B","A");
         new SocialNetworkGraph().graph(map);
     }
 }
