@@ -5,12 +5,15 @@ import java.util.*;
 public class Ski {
 
     /**
-     * Dijkstra, time: O(V*E), space: O(V+E)
+     * Can't use Dijkstra, edges may be negative
+     *
+     * BFS - time: O(V*E)
+     *
      * @param travel
      * @param point
      * @return
      */
-    public int getMaxScore(String[][] travel, String[][] point) {
+    public int getMaxScoreI(String[][] travel, String[][] point) {
         Map<String, Map<String, Integer>> route = new HashMap<>();
         Map<String, Integer> reward = new HashMap<>();
         Map<String, String> parent = new HashMap<>();
@@ -76,10 +79,112 @@ public class Ski {
         return res.toString();
     }
 
+
+    /**
+     * Topological sort + BFS
+     *
+     * time: O(V+E)
+     *
+     * @param travel
+     * @param point
+     * @return
+     */
+    public int getMaxScoreII(String[][] travel, String[][] point) {
+        Map<String,Map<String,Integer>> routes = new HashMap<>();
+        Map<String, Integer> rewards = new HashMap<>();
+        Map<String, Integer> indegree = new HashMap<>();
+        Map<String, Integer> score = new HashMap<>();
+        Map<String, String> parent = new HashMap<>();
+        Set<String> pos = new HashSet<>();
+        List<String> bestPaths = new LinkedList<>();
+
+        for (String[] s: travel) {
+            String start = s[0];
+            String end = s[2];
+            pos.add(start);
+            pos.add(end);
+        }
+
+        for (String s: pos) {
+            indegree.put(s, 0);
+        }
+
+        for (String[] s: travel) {
+            String start = s[0];
+            String end = s[2];
+            int cost = Integer.parseInt(s[1]);
+            Map<String, Integer> tmp = routes.getOrDefault(start, new HashMap<>());
+            tmp.put(end, cost);
+            routes.put(start, tmp);
+            indegree.put(end, indegree.get(end) + 1);
+        }
+
+        for (String[] s: point) {
+            rewards.put(s[0], Integer.parseInt(s[1]));
+        }
+
+
+        Queue<String> queue = new LinkedList<>();
+        int max = Integer.MIN_VALUE;
+        for (String s: indegree.keySet()) {
+            if (indegree.get(s) == 0) {
+                queue.offer(s);
+                score.put(s, 0);
+                parent.put(s, s);
+            }
+        }
+        while (!queue.isEmpty()) {
+            String cur = queue.poll();
+            int curScore = score.get(cur);
+
+            if (!routes.containsKey(cur)) {
+                if (curScore >= max) {
+                    if (curScore == max) {
+                        bestPaths.add(getPath(parent,cur));
+                    } else {
+                        bestPaths.clear();
+                        bestPaths.add(getPath(parent,cur));
+                    }
+                    max = curScore;
+                }
+                continue;
+            }
+
+            Map<String, Integer> adj = routes.get(cur);
+            for (String k: adj.keySet()) {
+                int nextScore = curScore - adj.get(k) + rewards.get(k);
+                if (nextScore > score.getOrDefault(k, Integer.MIN_VALUE)) {
+                    score.put(k, nextScore);
+                    parent.put(k, cur);
+                }
+                indegree.put(k, indegree.get(k) - 1);
+                if (indegree.get(k) == 0) {
+                    queue.offer(k);
+                }
+            }
+        }
+
+        for (String s: bestPaths) {
+            System.out.println(s);
+        }
+
+        return max;
+    }
+
+    public String getPath(Map<String, String> parent, String pos) {
+        StringBuilder res = new StringBuilder();
+        res.append(pos);
+        while (!parent.get(pos).equals(pos)) {
+            pos = parent.get(pos);
+            res.insert(0, pos + " -> ");
+        }
+        return res.toString();
+    }
+
     public static void main(String[] args) {
-        String[][] travel = {{"start","1","A"},{"start","1","B"},{"A","2","C"},{"B","3","G"},{"G","1","C"},
-                {"C","4","D"},{"D","5","E"},{"E","1","END1"},{"D","5","F"},{"F","1","END2"}};
-        String[][] point = {{"A","6"},{"B","8"},{"C","5"},{"D","2"},{"E","1"},{"F","5"},{"G","4"},{"END1","10"},{"END2","1"}};
-        System.out.println(new Ski().getMaxScore(travel, point));
+        String[][] travel = {{"A","2","B"},{"A","3","C"},{"B","5","D"},{"B","6","E"},{"C","4","E"},
+                {"C","4","F"},{"D","7","H"},{"E","6","H"},{"F","3","J"},{"H","1","I"},{"H","2","J"}};
+        String[][] point = {{"B","1"},{"C","6"},{"D","2"},{"E","4"},{"F","17"},{"H","7"},{"I","3"},{"J","2"}};
+        System.out.println(new Ski().getMaxScoreII(travel, point));
     }
 }
