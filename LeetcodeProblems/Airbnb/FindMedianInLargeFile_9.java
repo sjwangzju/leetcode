@@ -1,49 +1,49 @@
 package Airbnb;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class FindMedianInLargeFile_9 {
 
-    public Queue<Integer> large = new PriorityQueue<>();
-    public Queue<Integer> small = new PriorityQueue<>(new Comparator<Integer>() {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o2 - o1;
+    /**
+     * binary search, time: O(logN) -> Max recursive time: 32
+     * @param nums
+     * @param k
+     * @param min
+     * @param max
+     * @return
+     */
+    public double binarySearch(int[] nums, int k, double min, double max) {
+        if (min >= max) {
+            return min;
         }
-    });
-
-    public void addNum(int n) {
-        if (small.isEmpty() || small.peek() >= n) {
-            small.offer(n);
+        double mid = min + (max - min) / 2.0;
+        int cnt = 0;
+        double res = min;
+        for (int n: nums) {
+            if (n <= mid) {
+                cnt++;
+                res = Math.max(res, n);
+            }
+        }
+        if (cnt == k) {
+            return res;
+        } else if (cnt < k) {
+            return binarySearch(nums, k, mid, max);
         } else {
-            large.offer(n);
-        }
-
-        if (small.size() - large.size() > 1) {
-            large.offer(small.poll());
-        }
-        if (large.size() - small.size() > 1) {
-            small.offer(large.poll());
+            return binarySearch(nums, k, min, mid);
         }
     }
 
-    public double findMedian() {
-        if (small.size() == large.size()) {
-            return (small.peek() + large.peek()) / 2.0;
+    public double findMedian(int[] nums) {
+        int n = nums.length;
+        if (n % 2 == 1) {
+            return binarySearch(nums, n / 2 + 1, Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
-        if (small.size() > large.size()) {
-            return small.peek();
-        }
-        return large.peek();
+        return (binarySearch(nums, n / 2, Integer.MIN_VALUE, Integer.MAX_VALUE)
+                + binarySearch(nums, n / 2 + 1, Integer.MIN_VALUE, Integer.MAX_VALUE)) / 2.0;
     }
 
     public static void main (String[] args) {
-        FindMedianInLargeFile_9 find = new FindMedianInLargeFile_9();
-        find.addNum(1);
-        find.addNum(2);
-        find.addNum(3);
-        System.out.println(find.findMedian());
+        int[] nums = {1,2};
+        System.out.println(new FindMedianInLargeFile_9().findMedian(nums));
     }
 }
