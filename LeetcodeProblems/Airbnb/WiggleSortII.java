@@ -80,6 +80,7 @@ public class WiggleSortII {
     /**
      * lc324 - Wiggle SortII
      *
+     * time: O(N)
      *
      * @param nums
      */
@@ -132,12 +133,12 @@ public class WiggleSortII {
 
 
     public static void main(String[] args) {
-        int[] nums = {1, 3, 2, 2, 3, 1};
-        new WiggleSortII().wiggleSort(nums);
-        for (int n : nums) {
-            System.out.print(n + " ");
-        }
-//        System.out.print(new WiggleSortII().findKthLargest(nums, 2));
+        int[] nums = {1,1,1,1,1};
+//        new WiggleSortII().wiggleSort(nums);
+//        for (int n : nums) {
+//            System.out.print(n + " ");
+//        }
+        System.out.print(new WiggleSortII().findKthLargest(nums, 1));
     }
 
 }
