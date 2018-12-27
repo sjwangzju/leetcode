@@ -86,63 +86,70 @@ public class FindMinRoutes {
      * @param input
      * @return
      */
-    public int findRoutesII(String[][] input) {
-        Map<String,Integer> cost = new HashMap<>();
-        Map<String, String> parent = new HashMap<>();
-        PriorityQueue<String> pq = new PriorityQueue<>((a,b) -> (cost.get(a) - cost.get(b)));
-        List<String> res = new ArrayList<>();
-        Set<String> islands = new HashSet<>();
+    // kruskal
+    public static int findRoutesII(String[][] input) {
+        Map<String,String> parent = new HashMap<>();
+        Map<String,Integer> path = new HashMap<>();
         Set<String> visited = new HashSet<>();
+        Set<String> islands = new HashSet<>();
+        List<String> list = new ArrayList<>();
 
         for (String[] s: input) {
+            String str = s[0] + "-" + s[1];
+            int cost = Integer.parseInt(s[2]);
+            path.put(str, cost);
             islands.add(s[0]);
             islands.add(s[1]);
-            String tmp = s[0] + "-" + s[1];
-            int curCost = Integer.parseInt(s[2]);
-            cost.put(tmp, curCost);
-            pq.offer(tmp);
+        }
+
+        PriorityQueue<String> pq = new PriorityQueue<>((a,b) ->
+                (path.get(a) - path.get(b)));
+
+        for (String k: path.keySet()) {
+            pq.offer(k);
         }
 
         for (String island: islands) {
             parent.put(island, island);
         }
 
-        int numIslands = islands.size();
-        int sumCost = 0;
-
+        int cnt = 0;
+        int sum = 0;
         while (!pq.isEmpty()) {
-            String tmp = pq.poll();
-            String i1= tmp.split("-")[0];
-            String i2 = tmp.split("-")[1];
+            String cur = pq.poll();
+            String pos1 = cur.split("-")[0];
+            String pos2 = cur.split("-")[1];
 
-            if (!findParent(parent, i1).equals(findParent(parent, i2))) {
-                res.add(tmp);
-                sumCost += cost.get(tmp);
-                if (!visited.contains(i2) && !visited.contains(i1)) {
-                    parent.put(i2, i1);
-                    visited.add(i2);
-                    visited.add(i1);
-                } else if (!visited.contains(i2)) {
-                    parent.put(i2, i1);
-                    visited.add(i2);
+            if (!getEarliesParent(parent, pos1).equals(getEarliesParent(parent, pos2))) {
+                if (!visited.contains(pos1)) {
+                    visited.add(pos1);
+                    parent.put(pos1, getEarliesParent(parent, pos2));
                 } else {
-                    parent.put(i1, i2);
-                    visited.add(i1);
+                    visited.add(pos2);
+                    parent.put(pos2, getEarliesParent(parent, pos1));
                 }
-                if (res.size() == numIslands - 1) break;
+                sum += path.get(cur);
+                cnt++;
+                list.add(cur);
+            }
+
+            if (cnt == islands.size() - 1) {
+                for (String ss: list) {
+                    System.out.println(ss);
+                }
+                return sum;
             }
         }
-        for (String s: res) {
-            System.out.println(s);
-        }
-        return sumCost;
+
+        return -1;
     }
 
-    public String findParent(Map<String, String> parent, String s) {
-        while (!parent.get(s).equals(s)) {
-            s = parent.get(s);
+    public static String getEarliesParent(Map<String,String> parent, String s) {
+        String tmp = s;
+        while (!tmp.equals(parent.get(tmp))) {
+            tmp = parent.get(tmp);
         }
-        return s;
+        return tmp;
     }
 
 
