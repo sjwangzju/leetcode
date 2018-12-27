@@ -11,39 +11,35 @@ public class FindMedianInLargeFile_9 {
      * @param max
      * @return
      */
-    public double binarySearch(int[] nums, int k, double min, double max) {
+    public long binarySearch(int[] nums, int k, long min, long max) {
         if (min >= max) {
             return min;
         }
-        double mid = min + (max - min) / 2.0;
+        long mid = min + (max - min) / 2;
         int cnt = 0;
-        double res = min;
+        long res = min;
         for (int n: nums) {
             if (n <= mid) {
                 cnt++;
                 res = Math.max(res, n);
             }
         }
-        if (cnt == k) {
-            return res;
-        } else if (cnt < k) {
-            return binarySearch(nums, k, mid, max);
-        } else {
-            return binarySearch(nums, k, min, mid);
-        }
+        if (cnt == k) return res;
+        if (cnt < k) return binarySearch(nums, k, mid + 1, max);
+        return binarySearch(nums, k, min, res);
     }
 
     public double findMedian(int[] nums) {
         int n = nums.length;
         if (n % 2 == 1) {
-            return binarySearch(nums, n / 2 + 1, Integer.MIN_VALUE, Integer.MAX_VALUE);
+            return (double) binarySearch(nums, n / 2 + 1, Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
-        return (binarySearch(nums, n / 2, Integer.MIN_VALUE, Integer.MAX_VALUE)
+        return (double) (binarySearch(nums, n / 2, Integer.MIN_VALUE, Integer.MAX_VALUE)
                 + binarySearch(nums, n / 2 + 1, Integer.MIN_VALUE, Integer.MAX_VALUE)) / 2.0;
     }
 
     public static void main (String[] args) {
-        int[] nums = {1,2};
+        int[] nums = {2,2,2};
         System.out.println(new FindMedianInLargeFile_9().findMedian(nums));
     }
 }
