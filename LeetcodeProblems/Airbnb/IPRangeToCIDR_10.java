@@ -41,8 +41,8 @@ public class IPRangeToCIDR_10 {
     }
 
     public static void main(String[] args) {
-        String ip = "255.0.0.7";
-        int range = 11;
+        String ip = "255.0.0.8";
+        int range = 4;
         List<String> res = new IPRangeToCIDR_10().IPRangeToCIDR(ip, range);
         for (String s: res) {
             System.out.println(s);
