@@ -5,30 +5,31 @@ import java.util.*;
 
 public class BoggleGame_24 {
 
-    public static class Trie {
+    public static class Node {
+        Node[] children;
+        boolean isEnd;
 
-        public static class Node {
-            Map<Character, Node> children;
-            boolean isEnd;
-            public Node() {
-                this.children = new HashMap<>();
-                this.isEnd = false;
-            }
+        Node() {
+            this.children = new Node[26];
+            this.isEnd = false;
         }
+    }
 
+    public static class Trie {
         Node root;
-        public Trie() {
-            this.root = new Node();
+
+        Trie() {
+            root = new Node();
         }
 
         public void insert(String word) {
             Node tmp = root;
             for (int i = 0; i < word.length(); i++) {
                 char ch = word.charAt(i);
-                if (!tmp.children.containsKey(ch)) {
-                    tmp.children.put(ch, new Node());
+                if (tmp.children[ch - 'a'] == null) {
+                    tmp.children[ch - 'a'] = new Node();
                 }
-                tmp = tmp.children.get(ch);
+                tmp = tmp.children[ch - 'a'];
             }
             tmp.isEnd = true;
         }
@@ -37,25 +38,27 @@ public class BoggleGame_24 {
             Node tmp = root;
             for (int i = 0; i < word.length(); i++) {
                 char ch = word.charAt(i);
-                if (!tmp.children.containsKey(ch)) {
+                if (tmp.children[ch - 'a'] == null) {
                     return false;
                 }
-                tmp = tmp.children.get(ch);
+                tmp = tmp.children[ch - 'a'];
             }
             return tmp.isEnd;
         }
 
-        public boolean hasPerfix(String perfix) {
+
+        public boolean hasPerfix(String word) {
             Node tmp = root;
-            for (int i = 0; i < perfix.length(); i++) {
-                char ch = perfix.charAt(i);
-                if (!tmp.children.containsKey(ch)) {
+            for (int i = 0; i < word.length(); i++) {
+                char ch = word.charAt(i);
+                if (tmp.children[ch - 'a'] == null) {
                     return false;
                 }
-                tmp = tmp.children.get(ch);
+                tmp = tmp.children[ch - 'a'];
             }
             return true;
         }
+
 
     }
 
@@ -225,11 +228,13 @@ public class BoggleGame_24 {
 
 
 
-    public void findWordsII(char[][] board, String[] words) {
-        Trie trie = new Trie();
+    public static List<String> findWordsII(char[][] board, String[] words) {
+        List<String> res = new LinkedList<>();
+        List<String> cur = new LinkedList<>();
+        List<String> list = new LinkedList<>();
         int row = board.length;
         int col = board[0].length;
-        List<String> res = new LinkedList<>();
+        Trie trie = new Trie();
 
         for (String word: words) {
             trie.insert(word);
@@ -238,80 +243,102 @@ public class BoggleGame_24 {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 boolean[][] visited = new boolean[row][col];
-                search(board, visited, i, j, res, trie, new LinkedList<>());
+                search(board, visited, res, cur, i, j, trie);
             }
         }
 
         for (String s: res) {
-            System.out.println(s);
+            list.add(s);
         }
-        return;
+
+        return list;
     }
 
-    public void search(char[][] board, boolean[][] visited, int m, int n, List<String> res, Trie trie, List<String> words) {
+
+    public static void search(char[][] board, boolean[][] visited,
+                              List<String> res, List<String> cur, int m, int n, Trie trie) {
         int row = board.length;
         int col = board[0].length;
+
         for (int i = m; i < row; i++) {
             for (int j = n; j < col; j++) {
                 List<List<int[]>> nextIndexes = new LinkedList<>();
-                List<int[]> path = new LinkedList<>();
+                List<int[]> tmp = new LinkedList<>();
 
-                // find words that start from cur position
-                DFS_findMaxWords(board, visited, i, j, "", trie, nextIndexes, path);
+                findAdjacentWords(board, visited, i, j, "", trie, nextIndexes, tmp);
 
-                for (List<int[]> next: nextIndexes) {
+                for (List<int[]> indexes: nextIndexes) {
                     String word = "";
-                    for (int[] nn: next) {
-                        word += board[nn[0]][nn[1]];
-                        visited[nn[0]][nn[1]] = true;
-                    }
-                    words.add(word);
-                    if (words.size() > res.size()) {
-                        res.clear();
-                        res.addAll(words);
-                    }
-                    search(board, visited, i, j, res, trie, words);
 
-                    for (int[] nn: next) {
-                        visited[nn[0]][nn[1]] = false;
+                    for (int[] in: indexes) {
+                        word += board[in[0]][in[1]];
+                        visited[in[0]][in[1]] = true;
                     }
-                    words.remove(words.size() - 1);
+
+                    cur.add(word);
+
+                    if (cur.size() > res.size()) {
+                        res.clear();
+                        res.addAll(cur);
+                    }
+
+                    search(board, visited, res, cur, i, j, trie);
+
+                    for (int[] in: indexes) {
+                        visited[in[0]][in[1]] = false;
+                    }
+
+                    cur.remove(cur.size() - 1);
+
                 }
+
             }
+
             n = 0;
         }
+
         return;
     }
 
-    public void DFS_findMaxWords(char[][] board, boolean[][] visited,
-                                 int i, int j, String cur, Trie trie, List<List<int[]>> nextIndexes, List<int[]> path) {
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]) {
-            return;
-        }
+
+    public static void findAdjacentWords(char[][] board, boolean[][] visited,
+                                         int i, int j, String cur, Trie trie,
+                                         List<List<int[]>> nextIndexes, List<int[]> tmp) {
+        int row = board.length;
+        int col = board[0].length;
+        if (i < 0 || i >= row || j < 0 || j >= col || visited[i][j]) return;
+
         cur += board[i][j];
         if (!trie.hasPerfix(cur)) return;
-
         if (trie.hasWord(cur)) {
-            List<int[]> tmp = new ArrayList<>(path);
-            tmp.add(new int[]{i,j});
-            nextIndexes.add(tmp);
+            List<int[]> list = new ArrayList<>(tmp);
+            list.add(new int[]{i,j});
+            nextIndexes.add(list);
             return;
         }
+
+        tmp.add(new int[]{i,j});
         visited[i][j] = true;
-        path.add(new int[]{i,j});
-        DFS_findMaxWords(board, visited, i + 1, j, cur, trie, nextIndexes, path);
-        DFS_findMaxWords(board, visited, i - 1, j, cur, trie, nextIndexes, path);
-        DFS_findMaxWords(board, visited, i , j + 1, cur, trie, nextIndexes, path);
-        DFS_findMaxWords(board, visited, i, j - 1, cur, trie, nextIndexes, path);
+
+        findAdjacentWords(board, visited, i + 1, j, cur, trie, nextIndexes, tmp);
+        findAdjacentWords(board, visited, i - 1, j, cur, trie, nextIndexes, tmp);
+        findAdjacentWords(board, visited, i, j + 1, cur, trie, nextIndexes, tmp);
+        findAdjacentWords(board, visited, i, j - 1, cur, trie, nextIndexes, tmp);
+
+        tmp.remove(tmp.size() - 1);
         visited[i][j] = false;
-        path.remove(path.size() - 1);
+
         return;
     }
 
 
     public static void main(String[] args) {
-        char[][] board = {{'o','a','a','n'},{'a','t','g','u'},{'i','h','k','r'},{'i','f','l','y'}};
-        String[] words = {"run","fly","oath","agk","oatg"};
-        new BoggleGame_24().findWordsII(board, words);
+        char[][] board = {{'o','a','a','n'},{'e','t','a','e'},
+                {'i','h','k','r'},{'i','f','l','v'}};
+        String[] words = {"oath","pea","eat","rain"};
+        List<String> res = new BoggleGame_24().findWordsII(board, words);
+        for (String s: res) {
+            System.out.println(s);
+        }
     }
 }
