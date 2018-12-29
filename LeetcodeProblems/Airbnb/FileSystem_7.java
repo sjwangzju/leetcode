@@ -168,10 +168,28 @@ public class FileSystem_7 {
 //
 //        fileSystem.create(path4, 10);
 
-        String s = "/a/b";
-        String[] ss = s.split("/");
-        for (String str: ss) {
-            System.out.println(str);
-        }
+//        FileSystem fs = new FileSystem();
+//        fs.create("/a",1);
+//        System.out.println(fs.get_value("/a"));
+//        fs.set_value("/a",2);
+//        System.out.println(fs.get_value("/a"));
+//        fs.create("/a/b",5);
+//        System.out.println(fs.get_value("/a/b"));
+//
+//        fs.watch("/a", new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("a");
+//            }
+//        });
+//
+//        fs.watch("/a/b", new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("ab");
+//            }
+//        });
+//
+//        fs.create("/a/b",1);
     }
 }
