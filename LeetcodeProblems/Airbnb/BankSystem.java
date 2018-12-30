@@ -4,105 +4,118 @@ import java.util.*;
 
 public class BankSystem {
 
-    Map<Integer, Integer> balance;
-    Map<Integer, List<Integer>> times;
-    Map<Integer, Map<Integer, Integer>> activity;
+    public static class MyBankSystem{
+        Map<Integer, Integer> account;
+        Map<Integer, Map<Integer, Integer>> activity;
+        Map<Integer, List<Integer>> timeline;
 
-    BankSystem() {
-        balance = new HashMap<>();
-        times = new HashMap<>();
-        activity = new HashMap<>();
-    }
+        public MyBankSystem() {
+            this.account = new HashMap<>();
+            this.activity = new HashMap<>();
+            this.timeline = new HashMap<>();
+        }
 
-    public void deposit(int id, int timestamp, int amount) {
-        balance.put(id, amount + balance.getOrDefault(id, 0));
+        public void deposit(int id, int timestamp, int amount) {
+            account.put(id, account.getOrDefault(id, 0) + amount);
 
-        List<Integer> tmp = times.getOrDefault(id, new LinkedList<>());
-        tmp.add(timestamp);
-        times.put(id, tmp);
+            Map<Integer, Integer> curActivity = activity.getOrDefault(id, new HashMap<>());
+            curActivity.put(timestamp, account.get(id));
+            activity.put(id, curActivity);
 
-        Map<Integer, Integer> m = activity.getOrDefault(id, new HashMap<>());
-        m.put(timestamp, balance.get(id));
-        activity.put(id, m);
+            List<Integer> curTimeline = timeline.getOrDefault(id, new LinkedList<>());
+            curTimeline.add(timestamp);
+            timeline.put(id, curTimeline);
+        }
 
-        return;
-    }
+        public boolean withdraw(int id, int timestamp, int amount) {
+            if (!account.containsKey(id) || account.get(id) < amount) return false;
+            account.put(id, account.get(id) - amount);
 
-    public boolean withdraw(int id, int timestamp, int amount) {
-        if (!balance.containsKey(id) || balance.get(id) < amount) return false;
-        balance.put(id, balance.get(id) - amount);
+            Map<Integer, Integer> curActivity = activity.getOrDefault(id, new HashMap<>());
+            curActivity.put(timestamp, account.get(id));
+            activity.put(id, curActivity);
 
-        List<Integer> tmp = times.getOrDefault(id, new LinkedList<>());
-        tmp.add(timestamp);
-        times.put(id, tmp);
+            List<Integer> curTimeline = timeline.getOrDefault(id, new LinkedList<>());
+            curTimeline.add(timestamp);
+            timeline.put(id, curTimeline);
+            return true;
+        }
 
-        Map<Integer, Integer> m = activity.getOrDefault(id, new HashMap<>());
-        m.put(timestamp, balance.get(id));
-        activity.put(id, m);
+        public Integer check(int id) {
+            return account.get(id);
+        }
 
-        return true;
-    }
 
-    public int[] check(int id, int start, int end) {
-        int[] res = new int[2];
-        List<Integer> cur = times.getOrDefault(id, new LinkedList<>());
-        int index1 = findBalanceII(cur, start);
-        int index2 = findBalanceII(cur, end);
+        public int[] getBalance(int id, int startTime, int endTime) {
+            int[] res = new int[2];
+            if (!account.containsKey(id)) return res;
+            List<Integer> curTimeLine = timeline.get(id);
 
-        res[0] = index1 == -1 ? 0: activity.get(id).get(cur.get(index1));
-        res[1] = index2 == -1 ? 0: activity.get(id).get(cur.get(index2));
-        return res;
-    }
+            int s = curTimeLine.get(getStartIndex(curTimeLine, startTime));
+            int e = curTimeLine.get(getEndIndex(curTimeLine, endTime));
 
-    /**
-     * binary search, time: O(logN)
-     *
-     * @param list
-     * @param time
-     * @return
-     */
-    public int findBalanceI(List<Integer> list, int time) {
-        if (time < list.get(0)) return -1;
-        int lo = 0;
-        int hi = list.size() - 1;
-        while (lo < hi) {
-            int mid = lo + (hi - lo) / 2;
-            if (time >= list.get(mid)) {
-                if(time < list.get(mid + 1)) {
-                    return mid;
+            res[0] = activity.get(id).get(s);
+            res[1] = activity.get(id).get(e);
+
+            return res;
+        }
+
+        public int getStartIndex(List<Integer> list, int t) {
+            if (t < 0 || t < list.get(0)) return 0;
+            int lo = 0;
+            int hi = list.size() - 1;
+            while (lo < hi) {
+                int mid = lo + (hi - lo) / 2;
+                int midTime = list.get(mid);
+                if (t <= midTime) {
+                    if (t > list.get(mid - 1)) return mid;
+                    hi = mid - 1;
                 } else {
                     lo = mid + 1;
                 }
-            } else {
-                hi = mid - 1;
             }
+            return lo;
         }
-        return lo;
-    }
 
-    /**
-     * Sort the timestamp list, time: O(NlogN)
-     *
-     * @param list
-     * @param time
-     * @return
-     */
-    public int findBalanceII(List<Integer> list, int time) {
-        Collections.sort(list);
-        for (int i = 0; i < list.size(); i++) {
-            if (time < list.get(i)) return i - 1;
+        public int getEndIndex(List<Integer> list, int t) {
+            if (t > list.get(list.size() - 1)) return list.size() - 1;
+            int lo = 0;
+            int hi = list.size() - 1;
+            while (lo < hi) {
+                int mid = lo + (hi - lo) / 2;
+                int midTime = list.get(mid);
+                if (t >= midTime) {
+                    if (t < list.get(mid + 1)) return mid;
+                    lo = mid + 1;
+                } else {
+                    hi = mid - 1;
+                }
+            }
+            return lo;
         }
-        return list.size() - 1;
+
     }
 
     public static void main(String[] args) {
-        BankSystem bs = new BankSystem();
-        System.out.println(bs.withdraw(0, 0, 100));
-        bs.deposit(0, 0, 100);
-        bs.withdraw(0, 5, 50);
-        System.out.println(bs.check(0, 0, 3)[1]);
-        System.out.println(bs.check(0, 0, 6)[1]);
-        System.out.println(bs.check(0, 5, 10)[0]);
-        System.out.println(bs.check(0, 5, 10)[1]);
+        MyBankSystem bs = new MyBankSystem();
+        // t1 = 0, b = 100
+        bs.deposit(1, 0, 100);
+        System.out.println(bs.check(1));
+
+        // t2 = 5, b = 50
+        bs.withdraw(1, 5, 50);
+        System.out.println(bs.check(1));
+
+        // t3 = 10, b = 80
+        bs.deposit(1, 10, 30);
+        System.out.println(bs.check(1));
+
+        // t4 = 15, b = 260
+        bs.deposit(1, 15, 180);
+        System.out.println(bs.check(1));
+
+        int[] res = new int[2];
+        res = bs.getBalance(1, 5, 12);
+        System.out.println(res[0] + " " + res[1]);
     }
 }
