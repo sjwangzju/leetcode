@@ -4,60 +4,71 @@ import java.util.*;
 
 public class CheapestFlightWithinKStops_25 {
 
-    public int findCheapestPrice(int n, int[][] edges, int src, int dst, int k) {
-        Map<Integer, Map<Integer,Integer>> routes = new HashMap<>();
-        Set<Integer> visited = new HashSet<>();
+    public static int findCheapestPrice(int[][] edges, int src, int dst, int k) {
+        Map<Integer, Map<Integer, Integer>> routes = new HashMap<>();
+        Map<Integer, Integer> cityCost = new HashMap<>();
         Map<Integer, Integer> parent = new HashMap<>();
-        Map<Integer, Integer> cost = new HashMap<>();
+        Set<Integer> cities = new HashSet<>();
 
-        for(int[] edge: edges) {
-            Map<Integer,Integer> route = routes.getOrDefault(edge[0], new HashMap<>());
-            route.put(edge[1], edge[2]);
-            routes.put(edge[0], route);
+        for (int[] edge: edges) {
+            int city1 = edge[0];
+            int city2 = edge[1];
+            int cost = edge[2];
+            Map<Integer, Integer> tmp = routes.getOrDefault(city1, new HashMap<>());
+            tmp.put(city2, cost);
+            routes.put(city1, tmp);
+            cities.add(city1);
+            cities.add(city2);
         }
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> (a[0] - b[0]));
-        int[] cur = new int[]{0, src, k + 1};
-        pq.offer(cur);
+        for (int c: cities) {
+            if (c == src) {
+                cityCost.put(c, 0);
+            } else {
+                cityCost.put(c, Integer.MAX_VALUE);
+            }
+        }
 
-        while(!pq.isEmpty()) {
-            int[] tmp = pq.poll();
-            int curCost = tmp[0];
-            int curCity = tmp[1];
-            int stopsLeft = tmp[2];
+        PriorityQueue<int[]> pq =
+                new PriorityQueue<>((a,b) -> (cityCost.get(a[0]) - cityCost.get(b[0])));
+        pq.offer(new int[]{src, k + 1});
+
+        while (!pq.isEmpty()) {
+            int[] cur = pq.poll();
+            int curCity = cur[0];
+            int curCost = cityCost.get(curCity);
+            int curStopsLeft = cur[1];
 
             if (curCity == dst) {
-                 printPath(parent, curCity, src);
+                printPath(parent, curCity, src);
                 return curCost;
             }
 
-            if (stopsLeft > 0) {
-                Map<Integer,Integer> adj = routes.getOrDefault(curCity, new HashMap<>());
-                for (int next: adj.keySet()) {
-                    int nextCost = curCost + adj.get(next);
-
-                    pq.offer(new int[]{nextCost, next, stopsLeft - 1});
-                    parent.put(next, curCity);
-                    cost.put(next, nextCost);
-
+            if (curStopsLeft > 0) {
+                Map<Integer, Integer> adj = routes.getOrDefault(curCity, new HashMap<>());
+                for (int key: adj.keySet()) {
+                    if (curCost + adj.get(key) < cityCost.get(key)) {
+                        cityCost.put(key, curCost + adj.get(key));
+                        pq.offer(new int[]{key, curStopsLeft - 1, curCity});
+                        parent.put(key, curCity);
+                    }
                 }
             }
         }
-
         return -1;
     }
 
-    public static void printPath(Map<Integer, Integer> parent, int city, int src) {
-        int tmp = city;
-        StringBuilder sb = new StringBuilder();
-        sb.append(tmp);
-        while(tmp != src) {
-            tmp = parent.get(tmp);
-            sb.insert(0, tmp + "->");
+    // follow up
+    public static void printPath(Map<Integer, Integer> parent, int curCity, int src) {
+        StringBuilder res = new StringBuilder();
+        res.append(curCity);
+        while (curCity != src) {
+            curCity = parent.get(curCity);
+            res.insert(0, curCity + "->");
         }
-        System.out.println(sb.toString());
-        return;
+        System.out.println(res.toString());
     }
+
 
     public static void main(String[] args) {
         int[][] edges = {{0,1,5},{1,2,5},{0,3,2},{3,1,2},{1,4,1},{4,2,1}};
@@ -66,7 +77,7 @@ public class CheapestFlightWithinKStops_25 {
         int dst = 2;
         int k = 2;
 
-        int res = new CheapestFlightWithinKStops_25().findCheapestPrice(n, edges, src, dst, k);
+        int res = new CheapestFlightWithinKStops_25().findCheapestPrice(edges, src, dst, k);
         System.out.println(res);
     }
 }
