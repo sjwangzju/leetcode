@@ -13,20 +13,41 @@ public class MinimumVerticesToTraverseDirectedGraph_29 {
      * @return
      */
     public List<Integer> getMin(int[][] edges, int n) {
+//        Map<Integer, Set<Integer>> adj = new HashMap<>();
+//        Set<Integer> visited = new HashSet<>();
+//        List<Integer> res = new ArrayList<>();
+//
+//        for (int[] edge: edges) {
+//            Set<Integer> tmp = adj.getOrDefault(edge[0], new HashSet<>());
+//            tmp.add(edge[1]);
+//            adj.put(edge[0], tmp);
+//        }
+//
+//        for (int i = 0; i < n; i++) {
+//            if (!visited.contains(i)) {
+//                res.add(i);
+//                dfs(adj, res, visited, new HashSet<>(), i, i);
+//            }
+//        }
+//        return res;
+
         Map<Integer, Set<Integer>> adj = new HashMap<>();
         Set<Integer> visited = new HashSet<>();
-        List<Integer> res = new ArrayList<>();
+        Set<Integer> vertices = new HashSet<>();
+        List<Integer> res = new LinkedList<>();
 
         for (int[] edge: edges) {
             Set<Integer> tmp = adj.getOrDefault(edge[0], new HashSet<>());
             tmp.add(edge[1]);
             adj.put(edge[0], tmp);
+            vertices.add(edge[0]);
+            vertices.add(edge[1]);
         }
 
-        for (int i = 0; i < n; i++) {
-            if (!visited.contains(i)) {
-                res.add(i);
-                dfs(adj, res, visited, new HashSet<>(), i, i);
+        for (int vertice: vertices) {
+            if (!visited.contains(vertice)) {
+                res.add(vertice);
+                dfs(adj, res, visited, new HashSet<>(), vertice, vertice);
             }
         }
         return res;
