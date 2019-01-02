@@ -105,6 +105,56 @@ public class PourWater_14 {
         return;
     }
 
+    // assume no wall on both side
+    public static void waterDropII(int[] nums, int V, int K) {
+        int[] water = new int[nums.length];
+        while(V > 0) {
+            int l = findLeftMost(nums, K);
+            int r = findRightMost(nums, K);
+            if (nums[l] < nums[K] && l != 0) {
+                water[l]++;
+                nums[l]++;
+            } else if (nums[r] < nums[K] && r != nums.length - 1) {
+                water[r]++;
+                nums[r]++;
+            } else if (l == r) {
+                if (K != 0 && K != nums.length - 1) {
+                    water[K]++;
+                    nums[K]++;
+                }
+            }
+            V--;
+        }
+        printLand(nums, water);
+        return;
+    }
+
+    public static void printLand(int[] nums, int[] water) {
+        int max = 0;
+        int[] tmp = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            max = Math.max(nums[i], max);
+            tmp[i] = nums[i];
+        }
+
+        while (max > 0) {
+            for (int i = 0; i < tmp.length; i++) {
+                if (tmp[i] < max) {
+                    System.out.print(" ");
+                } else {
+                    if (water[i] > 0) {
+                        System.out.print("W");
+                        water[i]--;
+                    }
+                    else System.out.print("X");
+                    tmp[i]--;
+                }
+            }
+            System.out.println();
+            max--;
+        }
+    }
+
 
     public static int findLeftMost(int[] nums, int pos) {
         int low = pos;
