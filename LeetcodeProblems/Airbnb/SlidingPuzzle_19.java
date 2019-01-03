@@ -12,91 +12,88 @@ public class SlidingPuzzle_19 {
      * @param board
      * @return
      */
-    public int slidingPuzzle(int[][] board) {
+    public static int slidingPuzzle(int[][] board) {
         int cnt = 0;
-        String target = "123456780";
-        String cur = "";
-
         int row = board.length;
         int col = board[0].length;
+        String tmp ="";
+        String target = "123456780";
+        Set<String> visited = new HashSet<>();
+        Map<String, String> parent = new HashMap<>();
 
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                cur += board[i][j];
+                tmp += board[i][j] + "";
             }
         }
-        Set<String> visited = new HashSet<>();
-        Queue<String> q = new LinkedList<>();
-        q.offer(cur);
-        visited.add(cur);
-        Map<String, String> map = new HashMap<>();
 
+        Queue<String> q = new LinkedList<>();
+        q.offer(tmp);
         while (!q.isEmpty()) {
             int size = q.size();
-            for (int i = 0; i < size; i++) {
-                String tmp = q.poll();
-                if (tmp.equals(target)) {
-                    printPath(map, cnt, target);
+            while (size > 0) {
+                String cur = q.poll();
+                if (cur.equals(target)) {
+                    printPath(parent, target, tmp);
                     return cnt;
                 }
-                int zero = tmp.indexOf('0');
-
-                List<Integer> neigh = getNeighbour(row, col, zero);
-
-                StringBuilder key = new StringBuilder(tmp);
-
-                for (int n: neigh) {
-                    String ss = swap(tmp, zero, n);
-                    if (!visited.contains(ss)) {
-                        visited.add(ss);
-                        q.offer(ss);
-                        map.put(ss, key.toString());
+                int zero = cur.indexOf('0');
+                List<String> myNeigh = getNeigh(zero, board, cur);
+                for (String n: myNeigh) {
+                    if (!visited.contains(n)) {
+                        q.offer(n);
+                        visited.add(n);
+                        parent.put(n, cur);
                     }
                 }
+                size--;
             }
             cnt++;
         }
         return -1;
     }
 
-    public void printPath(Map<String, String> map, int steps, String target) {
-        String tmp = target;
-        System.out.println(tmp);
-        while (steps > 0) {
-            tmp = map.get(tmp);
-            System.out.println(tmp);
-            steps--;
+
+    public static void printPath(Map<String, String> parent, String target, String tmp) {
+        StringBuilder res = new StringBuilder();
+        res.append(target);
+        while (!target.equals(tmp)) {
+            target = parent.get(target);
+            res.insert(0, target + " ");
         }
+        System.out.println(res.toString());
     }
 
-    public String swap(String s, int i, int j) {
-        StringBuilder res = new StringBuilder(s);
-        res.setCharAt(i, s.charAt(j));
-        res.setCharAt(j, s.charAt(i));
+    public static List<String> getNeigh(int index, int[][] board, String cur) {
+        int row = board.length;
+        int col = board[0].length;
+        int i = index / col;
+        int j = index % col;
+        int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
+        List<String> ret = new LinkedList<>();
+
+        for (int[] d: dir) {
+            int nexti = i + d[0];
+            int nextj = j + d[1];
+            if (nexti >= 0 && nexti < row && nextj >= 0 && nextj < col) {
+                int nextIndex = nexti * col + nextj;
+                String neigh = afterSwap(cur, index, nextIndex);
+                ret.add(neigh);
+            }
+        }
+        return ret;
+    }
+
+
+    public static String afterSwap(String cur, int index, int newIndex) {
+        StringBuilder res = new StringBuilder(cur);
+        res.setCharAt(index, cur.charAt(newIndex));
+        res.setCharAt(newIndex, cur.charAt(index));
         return res.toString();
     }
 
-    public List<Integer> getNeighbour(int row, int col, int index) {
-        List<Integer> res = new ArrayList<>();
-        int i = index / col;
-        int j = index % col;
-        if (i - 1 >= 0) {
-            res.add((i - 1) * col + j);
-        }
-        if (i + 1 < row) {
-            res.add((i + 1) * col + j);
-        }
-        if (j - 1 >= 0) {
-            res.add(i * col + j - 1);
-        }
-        if (j + 1 < col) {
-            res.add(i * col + j + 1);
-        }
-        return res;
-    }
-
     public static void main(String[] args) {
-        int[][] board = {{2,3,0},{1,5,6},{4,7,8}};
+        int[][] board = {{1,2,3},{4,0,6},{7,5,8}};
         System.out.println(new SlidingPuzzle_19().slidingPuzzle(board));
 //        System.out.println(new SlidingPuzzle_19().getNeighbour(2,3,4));
     }
