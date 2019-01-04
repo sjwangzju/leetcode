@@ -9,57 +9,58 @@ public class TenWizards_30 {
      *
      * time: O(ElogV)
      *
-     * @param wizard
-     * @param src
-     * @param dest
-     * @param cnt
      */
-    public void findMinCost(List<List<Integer>> wizard, int src, int dest, int cnt) {
-        Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
+    public static int findMinCost(List<List<Integer>> input, int src, int dst, int n) {
+        Map<Integer, List<Integer>> adj = new HashMap<>();
+        Map<Integer, Integer> cost = new HashMap<>();
         Map<Integer, Integer> parent = new HashMap<>();
+        Set<Integer> visited = new HashSet<>();
 
-        for (int i = 0; i < wizard.size(); i++) {
-            List<Integer> list = wizard.get(i);
-            for (int n: list) {
-                Map<Integer, Integer> tmp = map.getOrDefault(i, new HashMap<>());
-                tmp.put(n, (int)Math.pow(n - i, 2));
-                map.put(i, tmp);
+        for (int i = 0; i < n; i++) {
+            for (int neigh: input.get(i)) {
+                List<Integer> cur = adj.getOrDefault(i, new LinkedList<>());
+                cur.add(neigh);
+                adj.put(i, cur);
             }
         }
 
-        Queue<int[]> queue = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
-        int[] cur = new int[]{0, src, src, cnt};
-        queue.offer(cur);
+        for (int i = 0; i < n; i++) {
+            if (i == src) cost.put(src, src);
+            else cost.put(i, Integer.MAX_VALUE);
+        }
 
-        while (!queue.isEmpty()) {
-            int[] n = queue.poll();
-            int sumCost = n[0];
-            int curWizard = n[1];
-            int parWizard = n[2];
-            int curCnt = n[3];
-            parent.put(curWizard, parWizard);
-            if (curWizard == dest) {
-                printPath(src, parent, curWizard);
-                System.out.println("cost: " + sumCost);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> (cost.get(a) - cost.get(b)));
+        pq.offer(src);
+
+        while (!pq.isEmpty()) {
+            int curWizard = pq.poll();
+            int curCost = cost.get(curWizard);
+            visited.add(curWizard);
+
+            if (curWizard == dst) {
+                printPath(parent, curWizard);
+                return curCost;
             }
-            if (curCnt > 0) {
-                Map<Integer, Integer> adj = map.getOrDefault(curWizard, new HashMap<>());
-                for (int k: adj.keySet()) {
-                    int cost = adj.get(k) + sumCost;
-                    int[] tmp = new int[]{cost, k, curWizard, curCnt - 1};
-                    queue.offer(tmp);
+            List<Integer> neighbor = adj.getOrDefault(curWizard, new LinkedList<>());
+            for (int nei: neighbor) {
+                int nextCost = curCost + (nei - curWizard) * (nei - curWizard);
+                if (nextCost < cost.get(nei) && !visited.contains(nei)) {
+                    cost.put(nei, nextCost);
+                    parent.put(nei, curWizard);
+                    pq.offer(nei);
                 }
             }
         }
+
+        return -1;
     }
 
-    public void printPath(int src, Map<Integer, Integer> map, int wizard) {
+    public static void printPath(Map<Integer, Integer> parent, int cur) {
         StringBuilder res = new StringBuilder();
-        int cur = wizard;
         res.append(cur);
-        while (cur != src) {
-            res.insert(0, map.get(cur) + " -> ");
-            cur = map.get(cur);
+        while (cur != 0) {
+            cur = parent.get(cur);
+            res.insert(0, cur + " ");
         }
         System.out.println(res.toString());
     }
@@ -76,6 +77,6 @@ public class TenWizards_30 {
         wizards.add(Arrays.asList(7));
         wizards.add(Arrays.asList(8));
         wizards.add(Arrays.asList(9));
-        new TenWizards_30().findMinCost(wizards, 0, 9, 10);
+        System.out.println(new TenWizards_30().findMinCost(wizards, 0, 9, 10));
     }
 }
