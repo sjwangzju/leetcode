@@ -13,24 +13,6 @@ public class MinimumVerticesToTraverseDirectedGraph_29 {
      * @return
      */
     public List<Integer> getMin(int[][] edges, int n) {
-//        Map<Integer, Set<Integer>> adj = new HashMap<>();
-//        Set<Integer> visited = new HashSet<>();
-//        List<Integer> res = new ArrayList<>();
-//
-//        for (int[] edge: edges) {
-//            Set<Integer> tmp = adj.getOrDefault(edge[0], new HashSet<>());
-//            tmp.add(edge[1]);
-//            adj.put(edge[0], tmp);
-//        }
-//
-//        for (int i = 0; i < n; i++) {
-//            if (!visited.contains(i)) {
-//                res.add(i);
-//                dfs(adj, res, visited, new HashSet<>(), i, i);
-//            }
-//        }
-//        return res;
-
         Map<Integer, Set<Integer>> adj = new HashMap<>();
         Set<Integer> visited = new HashSet<>();
         Set<Integer> vertices = new HashSet<>();
@@ -68,7 +50,7 @@ public class MinimumVerticesToTraverseDirectedGraph_29 {
     }
 
     public static void main(String[] args) {
-        int[][] edges = {{0,1},{1,2},{2,0},{2,3},{3,4},{4,5},{5,3}};
+        int[][] edges = {{0,1},{1,2},{2,0},{3,2},{3,4},{4,5},{5,3}};
         List<Integer> res = new MinimumVerticesToTraverseDirectedGraph_29().getMin(edges, 4);
         for (int n: res) {
             System.out.println(n);
