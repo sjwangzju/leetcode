@@ -2,7 +2,7 @@ package FB;
 
 import java.util.Stack;
 
-public class BalanceTheParenthesisInAString {
+public class LC20BalanceTheParenthesisInAString {
 
     /**
      * stack - time: O(N), space: O(N)
@@ -52,7 +52,7 @@ public class BalanceTheParenthesisInAString {
 
     public static void main(String[] args) {
         String s = "(a)())()";
-        String res = new BalanceTheParenthesisInAString().removeInvalidParenthesis(s);
+        String res = new LC20BalanceTheParenthesisInAString().removeInvalidParenthesis(s);
         System.out.println(res);
     }
 }
