@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class MeetingRooms {
+public class LC253MeetingRooms {
 
     public static class Interval {
         int start;
@@ -69,7 +69,7 @@ public class MeetingRooms {
         intervals[0] = new Interval(0,5);
         intervals[1] = new Interval(4,10);
         intervals[2] = new Interval(15,20);
-        System.out.println(new MeetingRooms().canAttendMeetings(intervals));
-        System.out.println(new MeetingRooms().minMeetingRoom(intervals));
+        System.out.println(new LC253MeetingRooms().canAttendMeetings(intervals));
+        System.out.println(new LC253MeetingRooms().minMeetingRoom(intervals));
     }
 }
