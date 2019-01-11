@@ -10,6 +10,7 @@ public class LC23MergeKSortedLists {
         ListNode(int x) { val = x; }
     }
 
+    // priority queue
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0 || lists == null) return null;
         PriorityQueue<ListNode> pq = new PriorityQueue<>((a,b) -> a.val - b.val);
