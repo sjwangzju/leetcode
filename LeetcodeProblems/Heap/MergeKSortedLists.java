@@ -54,7 +54,7 @@ public class MergeKSortedLists {
         lists[1] = new ListNode(1);
         lists[2] = new ListNode(2);
         ListNode re = new MergeKSortedLists().mergeKLists(lists);
-        while(re != null){
+        while(re != null) {
             System.out.println(re.val);
             re = re.next;
         }

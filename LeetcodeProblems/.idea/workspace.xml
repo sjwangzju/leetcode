@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00aeda59-db7e-4223-b8c0-f92c9c8d755d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/BackTracking/CombinationSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackTracking/CombinationSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackTracking/LetterCombinationsOfAPhoneNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackTracking/LetterCombinationsOfAPhoneNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinarySearch/CountCompleteTreeNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearch/CountCompleteTreeNodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinarySearchTree/ContainsDuplicateIII.java" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearchTree/ContainsDuplicateIII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BreadthFirstSearch/FindBottomLeftTreeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/BreadthFirstSearch/FindBottomLeftTreeValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DepthFirstSearch/ConstructBinaryTreeFromInorderAndPostorderTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/DepthFirstSearch/ConstructBinaryTreeFromInorderAndPostorderTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DynamicProgramming/HouseRobber.java" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicProgramming/HouseRobber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DynamicProgramming/LongestIncreasingSubsequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicProgramming/LongestIncreasingSubsequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DynamicProgramming/PartitionToKEqualSumSubsets.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/FindAnagramMappings.java" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/FindAnagramMappings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Heap/MergeKSortedLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/MergeKSortedLists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/AddTwoNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/AddTwoNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/PalindromeNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Math/PalindromeNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/ReverseVowelsOfAString.java" beforeDir="false" afterPath="$PROJECT_DIR$/String/ReverseVowelsOfAString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/ReverseWordsInAStringIII.java" beforeDir="false" afterPath="$PROJECT_DIR$/String/ReverseWordsInAStringIII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Twitter/WhoIsTheClosest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter/WhoIsTheClosest.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.22.0" />
+      </map>
+    </option>
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/LeetcodeProblems$LowestCommonAncestorOfABinarySearchTree.ic" NAME="LowestCommonAncestorOfABinarySearchTree Coverage Results" MODIFIED="1532569819005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tree.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/LeetcodeProblems$RemoveLinkedListElements.ic" NAME="RemoveLinkedListElements Coverage Results" MODIFIED="1524387027896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>LinkedList.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/LeetcodeProblems$NextPermutation.ic" NAME="NextPermutation Coverage Results" MODIFIED="1532328810080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Array.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/LeetcodeProblems$StringCompression.ic" NAME="StringCompression Coverage Results" MODIFIED="1526545004604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>String.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1198697271">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="62" />
+          <entry key="project.open.time.0" value="14" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="9" />
+          <entry key="project.open.time.5" value="19" />
+          <entry key="project.open.time.6" value="10" />
+          <entry key="project.open.time.7" value="4" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="63" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="bash_logout" value="1" />
+          <entry key="coordinator1_output" value="38" />
+          <entry key="coordinator2_output" value="12" />
+          <entry key="coordinator3_output" value="7" />
+          <entry key="datacenter1_output" value="54" />
+          <entry key="datacenter2_output" value="26" />
+          <entry key="datacenter3_output" value="9" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="359" />
+          <entry key="pem" value="2" />
+          <entry key="prop" value="1" />
+          <entry key="references" value="1" />
+          <entry key="truetimeServer_output" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="359" />
+          <entry key="PLAIN_TEXT" value="156" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="80" />
+          <entry key="java" value="133155" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="133154" />
+          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="RegExp" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VMware/IntelligentSubstring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VMware/PerfectTeam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prefix</find>
+      <find>surfix</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/TwoPointers</dir>
+      <dir>$PROJECT_DIR$/FB</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/FB/ContiguousSubarraySumToGivenInteger.java" />
+        <option value="$PROJECT_DIR$/FB/FindIntersectionOfTwoSortedIntegerArrays.java" />
+        <option value="$PROJECT_DIR$/FB/LetterCombinationsOfPhoneNumber.java" />
+        <option value="$PROJECT_DIR$/FB/BalanceTheParenthesisInAString.java" />
+        <option value="$PROJECT_DIR$/FB/SerializeAndDeserializeABinaryTree.java" />
+        <option value="$PROJECT_DIR$/FB/SerializeAndDeserializeABinarySearchTree.java" />
+        <option value="$PROJECT_DIR$/FB/MeetingRooms.java" />
+        <option value="$PROJECT_DIR$/FB/SerializeAndDeserializeBinaryTree.java" />
+        <option value="$PROJECT_DIR$/FB/IntegerCombinationsEqualsK.java" />
+        <option value="$PROJECT_DIR$/FB/RomanToInteger.java" />
+        <option value="$PROJECT_DIR$/FB/TaskScheduler.java" />
+        <option value="$PROJECT_DIR$/FB/NextPermutation.java" />
+        <option value="$PROJECT_DIR$/FB/RearrangePositiveAndNegativeNumbers.java" />
+        <option value="$PROJECT_DIR$/FB/RegularExpressionMatching.java" />
+        <option value="$PROJECT_DIR$/Airbnb/ImplementTrie.java" />
+        <option value="$PROJECT_DIR$/Airbnb/FindingOcean_27.java" />
+        <option value="$PROJECT_DIR$/FB/CourseScheduler.java" />
+        <option value="$PROJECT_DIR$/Google/LongestIncreasingPathInAMatrix.java" />
+        <option value="$PROJECT_DIR$/Airbnb/SocialNetworkGraph.java" />
+        <option value="$PROJECT_DIR$/Airbnb/MinimumVerticesToTraverseDirectedGraph.java" />
+        <option value="$PROJECT_DIR$/Airbnb/BoardScore.java" />
+        <option value="$PROJECT_DIR$/Airbnb/game.java" />
+        <option value="$PROJECT_DIR$/Airbnb/BoggleGame_24.java" />
+        <option value="$PROJECT_DIR$/Airbnb/FileSystem_7.java" />
+        <option value="$PROJECT_DIR$/Airbnb/FindMinRoutes.java" />
+        <option value="$PROJECT_DIR$/Airbnb/FindMedianInLargeFile_9.java" />
+        <option value="$PROJECT_DIR$/Airbnb/MenuCombinationSum_22.java" />
+        <option value="$PROJECT_DIR$/Airbnb/Ski.java" />
+        <option value="$PROJECT_DIR$/Airbnb/TravelBuddy_6.java" />
+        <option value="$PROJECT_DIR$/Airbnb/CheapestFlightWithinKStops_25.java" />
+        <option value="$PROJECT_DIR$/Airbnb/BankSystem.java" />
+        <option value="$PROJECT_DIR$/Airbnb/IPRangeToCIDR_10.java" />
+        <option value="$PROJECT_DIR$/Airbnb/ListOfListInteger_3.java" />
+        <option value="$PROJECT_DIR$/Airbnb/PourWater_14.java" />
+        <option value="$PROJECT_DIR$/Airbnb/SlidingPuzzle_19.java" />
+        <option value="$PROJECT_DIR$/Airbnb/TenWizards_30.java" />
+        <option value="$PROJECT_DIR$/Airbnb/ImplementQueueWithArray_2.java" />
+        <option value="$PROJECT_DIR$/Airbnb/MinimumVerticesToTraverseDirectedGraph_29.java" />
+        <option value="$PROJECT_DIR$/Airbnb/WiggleSortII.java" />
+        <option value="$PROJECT_DIR$/FB/RemoveInvalidParentheses.java" />
+        <option value="$PROJECT_DIR$/FB/LC273IntegerToEnglishWords.java" />
+        <option value="$PROJECT_DIR$/FB/LC67AddBinary.java" />
+        <option value="$PROJECT_DIR$/FB/LC23MergeKSortedLists.java" />
+        <option value="$PROJECT_DIR$/FB/LC88MergeSortedArray.java" />
+        <option value="$PROJECT_DIR$/FB/LC253MeetingRooms.java" />
+        <option value="$PROJECT_DIR$/FB/LC349IntersectionOfTwoArrays.java" />
+        <option value="$PROJECT_DIR$/FB/LC350IntersectionOfTwoArraysII.java" />
+        <option value="$PROJECT_DIR$/FB/LC560SubarraySumEqualsK.java" />
+        <option value="$PROJECT_DIR$/VMware/BreakPalindrome.java" />
+        <option value="$PROJECT_DIR$/VMware/PerfectTeam.java" />
+        <option value="$PROJECT_DIR$/VMware/IntelligentSubstring.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1440" />
+    <option name="y" value="-82" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LeetcodeProblems" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LeetcodeProblems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LeetcodeProblems" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LeetcodeProblems" type="462c0819:PsiDirectoryNode" />
+              <item name="VMware" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/Coco/Desktop/coding/leetcode/LeetcodeProblems/Airbnb/ImplementTrie.java" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547763713731" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Array" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.IntelligentSubstring">
+    <configuration name="BreakPalindrome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="VMware.BreakPalindrome" />
+      <module name="LeetcodeProblems" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="VMware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntelligentSubstring" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="VMware.IntelligentSubstring" />
+      <module name="LeetcodeProblems" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="VMware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LC349IntersectionOfTwoArrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FB.LC349IntersectionOfTwoArrays" />
+      <module name="LeetcodeProblems" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LC350IntersectionOfTwoArraysII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FB.LC350IntersectionOfTwoArraysII" />
+      <module name="LeetcodeProblems" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LC560SubarraySumEqualsK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FB.LC560SubarraySumEqualsK" />
+      <module name="LeetcodeProblems" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.LC349IntersectionOfTwoArrays" />
+      <item itemvalue="Application.LC350IntersectionOfTwoArraysII" />
+      <item itemvalue="Application.LC560SubarraySumEqualsK" />
+      <item itemvalue="Application.BreakPalindrome" />
+      <item itemvalue="Application.IntelligentSubstring" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.IntelligentSubstring" />
+        <item itemvalue="Application.BreakPalindrome" />
+        <item itemvalue="Application.LC560SubarraySumEqualsK" />
+        <item itemvalue="Application.LC350IntersectionOfTwoArraysII" />
+        <item itemvalue="Application.LC349IntersectionOfTwoArrays" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00aeda59-db7e-4223-b8c0-f92c9c8d755d" name="Default" comment="" />
+      <created>1524359313477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1524359313477</updated>
+      <workItem from="1537076670413" duration="125000" />
+      <workItem from="1537329720825" duration="10152000" />
+      <workItem from="1537341876445" duration="428000" />
+      <workItem from="1538892442158" duration="5386000" />
+      <workItem from="1538936460332" duration="29497000" />
+      <workItem from="1539039929192" duration="11527000" />
+      <workItem from="1539058205654" duration="3291000" />
+      <workItem from="1539106813546" duration="1000" />
+      <workItem from="1539136874519" duration="1000" />
+      <workItem from="1539151073085" duration="2576000" />
+      <workItem from="1539156267686" duration="1937000" />
+      <workItem from="1539300661497" duration="1813000" />
+      <workItem from="1539316196504" duration="1588000" />
+      <workItem from="1539583928608" duration="10619000" />
+      <workItem from="1539644138617" duration="9000" />
+      <workItem from="1539644152638" duration="823000" />
+      <workItem from="1539645100669" duration="720000" />
+      <workItem from="1539666502441" duration="9129000" />
+      <workItem from="1539709398442" duration="621000" />
+      <workItem from="1539746307016" duration="1138000" />
+      <workItem from="1539752923020" duration="1428000" />
+      <workItem from="1539764303224" duration="49000" />
+      <workItem from="1539848644464" duration="1000" />
+      <workItem from="1539850710147" duration="606000" />
+      <workItem from="1539886442721" duration="34431000" />
+      <workItem from="1540058105351" duration="1859000" />
+      <workItem from="1540077011068" duration="28112000" />
+      <workItem from="1540330116207" duration="1461000" />
+      <workItem from="1540433787936" duration="51000" />
+      <workItem from="1540753125297" duration="33000" />
+      <workItem from="1540884848944" duration="9000" />
+      <workItem from="1540884885114" duration="446000" />
+      <workItem from="1540885350700" duration="4427000" />
+      <workItem from="1540919020017" duration="2474000" />
+      <workItem from="1540926004204" duration="23000" />
+      <workItem from="1540977326090" duration="4181000" />
+      <workItem from="1542179391364" duration="5811000" />
+      <workItem from="1542220421461" duration="5336000" />
+      <workItem from="1542565662205" duration="103000" />
+      <workItem from="1542565769880" duration="4582000" />
+      <workItem from="1542576867491" duration="19590000" />
+      <workItem from="1542606904628" duration="54000" />
+      <workItem from="1542655194103" duration="7729000" />
+      <workItem from="1542669720527" duration="47000" />
+      <workItem from="1542669868623" duration="19000" />
+      <workItem from="1542865175827" duration="5127000" />
+      <workItem from="1542910405319" duration="5881000" />
+      <workItem from="1542923475731" duration="13242000" />
+      <workItem from="1543174052941" duration="56551000" />
+      <workItem from="1543563822619" duration="34378000" />
+      <workItem from="1543869077525" duration="26000" />
+      <workItem from="1544310952167" duration="6985000" />
+      <workItem from="1544380001643" duration="11500000" />
+      <workItem from="1544568862742" duration="184000" />
+      <workItem from="1544857244328" duration="188861000" />
+      <workItem from="1545892005459" duration="13566000" />
+      <workItem from="1546020477984" duration="23472000" />
+      <workItem from="1546473747085" duration="93000" />
+      <workItem from="1546558177277" duration="3637000" />
+      <workItem from="1546643831217" duration="9761000" />
+      <workItem from="1547005210588" duration="32644000" />
+      <workItem from="1547749292101" duration="4793000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="624944000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1440" y="-82" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17199148" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49861112" weight="0.32771084" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5857295" visible="true" weight="0.23564357" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.54309255" weight="0.47228914" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32970297" />
+      <window_info anchor="bottom" id="Style Checker" order="7" />
+      <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.32967034" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Amazon EC2" order="10" sideWeight="0.49893504" weight="0.32772276" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.62732476" weight="0.32673267" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.4142705" side_tool="true" weight="0.2940594" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49946752" weight="0.3282967" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.47390842" weight="0.31445783" />
+      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49946752" visible="true" weight="0.31606218" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24973376" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3298611" />
+      <window_info anchor="right" id="SciView" order="10" />
+      <window_info anchor="right" id="Remote Host" order="11" weight="0.2081545" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18743344" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49861112" weight="0.32771084" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5857295" visible="true" weight="0.2851485" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.54309255" weight="0.42178217" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32970297" />
+      <window_info anchor="bottom" id="Style Checker" order="7" />
+      <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.32967034" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Amazon EC2" order="10" sideWeight="0.49893504" weight="0.32772276" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.62732476" weight="0.32673267" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.4142705" side_tool="true" weight="0.2940594" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49946752" weight="0.3282967" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.47390842" weight="0.31683168" />
+      <window_info anchor="bottom" id="File Transfer" order="15" sideWeight="0.49946752" visible="true" weight="0.31606218" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24973376" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3298611" />
+      <window_info anchor="right" id="SciView" order="10" />
+      <window_info anchor="right" id="Remote Host" order="11" weight="0.2081545" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="j = 4" language="JAVA" />
+          <url>file://$PROJECT_DIR$/Tree/PopulatingNextRightPointersInEachNode.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((HashMap)parent).entrySet().toArray()[6]" custom="java.util.HashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>j = 4</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>j==4</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FB/RegularExpressionMatching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/DictionaryLookupWithWildcard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tree/AverageOfLevelsInBinaryTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/FindingOcean_27.java" />
+    <entry file="file://$PROJECT_DIR$/Google/LongestIncreasingPathInAMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/CourseScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/SocialNetworkGraph.java" />
+    <entry file="file://$PROJECT_DIR$/Airbnb/game.java" />
+    <entry file="file://$PROJECT_DIR$/Airbnb/ImplementTrie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LetterCombinationsOfPhoneNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/NextPermutation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/PalindromePairs_8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/IntegerCombinationsEqualsK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/BankSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-884">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/BoardScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/IPRangeToCIDR_10.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/CheapestFlightWithinKStops_25.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/MaximumNightAccommodate_20.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/PourWater_14.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../internship/Interview/Airbnb/code/MenuCombinationSum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/ListOfListInteger_3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="79" column="15" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/TextJustification_12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/FileSystem_7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2149">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/FindMedianInLargeFile_9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/ImplementQueueWithArray_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/MinimumVerticesToTraverseDirectedGraph_29.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/PreferenceList_28.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1194">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/TravelBuddy_6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/RoundPrices_18.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/FindMinRoutes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="151" column="19" lean-forward="true" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/WiggleSortII.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/TenWizards_30.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/BoggleGame_24.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-780">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="37" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/SlidingPuzzle_19.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/Ski.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="161" column="35" lean-forward="true" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Airbnb/MenuCombinationSum_22.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="831">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/RemoveInvalidParentheses.java" />
+    <entry file="file://$PROJECT_DIR$/FB/Solution.java" />
+    <entry file="file://$PROJECT_DIR$/FB/LC20BalanceTheParenthesisInAString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC273IntegerToEnglishWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC67AddBinary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC23MergeKSortedLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC88MergeSortedArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC253MeetingRooms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC349IntersectionOfTwoArrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/LC350IntersectionOfTwoArraysII.java" />
+    <entry file="file://$PROJECT_DIR$/FB/LC560SubarraySumEqualsK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VMware/BreakPalindrome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FB/MinimumWindowSubstring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1077">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VMware/IntelligentSubstring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VMware/PerfectTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>LeetcodeProblems</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javalib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

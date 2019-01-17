@@ -20,7 +20,7 @@ import java.util.Map;
  * Note:
  * A, B have equal lengths in range [1, 100].
  * A[i], B[i] are integers in range [0, 10^5].
- * 
+ *
  */
 public class FindAnagramMappings {
     public int[] anagramMappings(int[] A, int[] B) {

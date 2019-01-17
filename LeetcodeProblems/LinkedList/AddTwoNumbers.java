@@ -26,11 +26,8 @@ public class AddTwoNumbers {
             t = t.next;
             l1 = l1.next; l2 = l2.next;
         }
-        if(l1 != null){
-            N = l1;
-        }
+        if(l1 != null) N = l1;
         else if(l2 != null) N = l2;
-
         while(N != null){
             num = N.val + add;
             add = 0;
@@ -46,7 +43,6 @@ public class AddTwoNumbers {
             t.next = new ListNode(1);
             t = t.next;
         }
-
         return re.next;
     }
     public static class ListNode {

@@ -1,7 +1,5 @@
 package Math;
 
-import java.nio.IntBuffer;
-
 /**
  * Created by sjwang on 30/04/2018.
  * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.

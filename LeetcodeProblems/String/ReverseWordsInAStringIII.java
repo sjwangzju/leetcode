@@ -1,7 +1,5 @@
 package String;
 
-import java.lang.reflect.Array;
-
 /**
  * Created by sjwang on 25/04/2018.
  * Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.

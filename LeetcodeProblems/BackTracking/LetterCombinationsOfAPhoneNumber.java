@@ -21,7 +21,7 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new LinkedList<>();
-        if(digits == null || digits.length() == 0) return res;
+        if (digits == null || digits.length() == 0) return res;
         backTracking(res, digits, "", 0);
         return res;
     }
@@ -31,7 +31,6 @@ public class LetterCombinationsOfAPhoneNumber {
             res.add(cur);
             return;
         }
-
         String s = map[digits.charAt(index) - '0'];
         for (int i = 0; i < s.length(); i++) {
             backTracking(res, digits, cur + s.charAt(i), index + 1);
@@ -40,7 +39,7 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public static void main(String args[]) {
         List<String> result = new LetterCombinationsOfAPhoneNumber().letterCombinations("232");
-        for(int i = 0; i < result.size(); i++) {
+        for (int i = 0; i < result.size(); i++) {
             System.out.println(result.get(i));
         }
     }
