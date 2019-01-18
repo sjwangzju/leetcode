@@ -8,28 +8,36 @@ public class IntelligentSubstring {
         int r = 0;
         int cnt = 0;
         int max = 0;
-        while (l <= r) {
+
+        while (l <= r && r < s.length()) {
+
+            if (chs[r] == '0') {
+                cnt++;
+            }
+
             if (cnt > k) {
-                while(chs[l] != '0' && l < r) {
+                while (l < r && chs[l] != '0') {
                     l++;
                 }
-                cnt--;
                 l++;
-            } else {
-                while (r < s.length() - 1 && chs[r] != '0') {
-                    r++;
-                }
-                if (r == s.length() - 1) return r - l + 1;
-                cnt++;
-                r++;
-                if (cnt <= k) max = Math.max(max, r - l + 1);
+                cnt--;
             }
+
+            if (cnt == k) {
+                int tmp = r + 1;
+                while (tmp < s.length() && chs[tmp] != '0') {
+                    tmp++;
+                }
+                max = Math.max(max, tmp - l);
+            }
+
+            r++;
         }
         return max;
     }
 
     public static void main(String[] args) {
         String s = "101010001101011";
-        System.out.println(new IntelligentSubstring().maxLength(s, 2));
+        System.out.println(new IntelligentSubstring().maxLength(s, 1));
     }
 }
