@@ -2,8 +2,8 @@ package VMware;
 
 public class IntelligentSubstring {
 
-    public int maxLength(String s, int k) {
-        char[] chs = s.toCharArray();
+    public int getSpecialSubstring(String s, String charValue, int k) {
+        char[] chs = charValue.toCharArray();
         int l = 0;
         int r = 0;
         int cnt = 0;
@@ -37,7 +37,8 @@ public class IntelligentSubstring {
     }
 
     public static void main(String[] args) {
-        String s = "101010001101011";
-        System.out.println(new IntelligentSubstring().maxLength(s, 1));
+        String s = "abcde";
+        String charValue = "10101111111111111111111111";
+        System.out.println(new IntelligentSubstring().getSpecialSubstring(s, charValue, 1));
     }
 }
