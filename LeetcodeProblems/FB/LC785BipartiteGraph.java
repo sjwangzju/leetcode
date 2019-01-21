@@ -6,8 +6,6 @@ public class LC785BipartiteGraph {
     /**
      * union find
      *
-     * time: O(
-     *
      * @param graph
      * @return
      */
