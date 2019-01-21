@@ -41,8 +41,10 @@ public class NumberOfIslandsII {
                 if (ii >= 0 && ii < m && jj >= 0 && jj < n && parent[neigh] != -1) {
                     int p1 = findParent(parent, curPos);
                     int p2 = findParent(parent, neigh);
-                    if (p1 != p2) cnt--;
-                    parent[p2] = p1;
+                    if (p1 != p2) {
+                        cnt--;
+                        parent[p2] = p1;
+                    }
                 }
             }
             res.add(cnt);
