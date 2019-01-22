@@ -5,6 +5,12 @@ import java.util.Map;
 
 public class LC523ContinuousSubarraySum {
 
+    /**
+     * time: O(N)
+     * @param nums
+     * @param k
+     * @return
+     */
     public boolean checkSubarraySum(int[] nums, int k) {
         if (nums.length == 0 || nums == null) return false;
         Map<Integer, Integer> map = new HashMap<>();
