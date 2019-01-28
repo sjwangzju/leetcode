@@ -6,7 +6,6 @@ public class ClosestTwoSum {
 
     /**
      * time: O(nlogn), space: O(1)
-     *
      * @param nums1
      * @param nums2
      * @param n
