@@ -16,6 +16,15 @@ public class MST {
         }
     }
 
+    /**
+     * kruskal algorithm (union find)
+     *
+     * time: O(ElogE), space: O(E + V)
+     *
+     * @param num
+     * @param connection
+     * @return
+     */
     public List<Connections> minimumCostConnection(int num, List<Connections> connection) {
         List<Connections> res = new LinkedList<>();
         Set<String> centers = new HashSet<>();
