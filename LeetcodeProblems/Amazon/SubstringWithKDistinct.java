@@ -8,17 +8,15 @@ import java.util.Map;
 public class SubstringWithKDistinct {
 
     /**
-     * sliding window
+     * sliding window of fixed size k
      *
      * time: O(N), space: O(N)
      *
-     * @param chs
-     * @param k
-     * @return
      */
-    public List<List<Character>> findSubstring(char[] chs, int k) {
+    public List<List<Character>> findSubstringI(String s, int k) {
         List<List<Character>> res = new LinkedList<>();
         Map<Character, Integer> map = new HashMap<>();
+        char[] chs = s.toCharArray();
 
         int l = 0;
         int r = 0;
@@ -47,15 +45,40 @@ public class SubstringWithKDistinct {
         return res;
     }
 
-    public static void main(String[] args) {
-        char[] chs = {'a','a','a','a','b','c','d','e'};
-        int k = 3;
-        List<List<Character>> res = new SubstringWithKDistinct().findSubstring(chs, k);
-        for (List<Character> list: res) {
-            for (char ch: list) {
-                System.out.print(ch + " ");
+
+    /**
+     * find all substring with k distinct characters
+     *
+     * time: O(n^2), space: O(n)
+     *
+     * @param s
+     * @param num
+     * @return
+     */
+    public int findSubstringII(String s, int num) {
+        char[] chs = s.toCharArray();
+        int cnt = 0;
+
+        for (int i = 0; i < chs.length; i++) {
+            int[] dict = new int[26];
+            int tmp = 0;
+            for (int j = i; j < chs.length; j++) {
+                char ch = chs[j];
+                if (dict[ch - 'a'] == 0) {
+                    tmp++;
+                }
+                dict[ch - 'a']++;
+                if (tmp == num) cnt++;
+                if (tmp > num) break;
             }
-            System.out.println();
         }
+        return cnt;
+    }
+
+
+    public static void main(String[] args) {
+        String s = "abcdefg";
+        int num = 2;
+        System.out.print(new SubstringWithKDistinct().findSubstringII(s, num));
     }
 }
