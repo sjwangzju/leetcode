@@ -1,8 +1,6 @@
 package Amazon;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class HighFive {
 
@@ -22,7 +20,7 @@ public class HighFive {
      * @param results
      * @return
      */
-    public Map<Integer, Double> getHighFive(Result[] results) {
+    public Map<Integer, Double> getHighFive(List<Result> results) {
         Map<Integer, Double> res = new HashMap<>();
         Map<Integer, PriorityQueue<Integer>> score = new HashMap<>();
 
@@ -55,16 +53,24 @@ public class HighFive {
     }
 
     public static void main(String[] args) {
-        Result[] results = new Result[7];
-        results[0] = new Result(1, 90);
-        results[1] = new Result(1, 10);
-        results[2] = new Result(1, 90);
-        results[3] = new Result(1, 90);
-        results[4] = new Result(1, 100);
-        results[5] = new Result(1, 100);
-        results[6] = new Result(2, 10);
+        List<Result> list = new LinkedList<>();
 
-        Map<Integer, Double> res = new HighFive().getHighFive(results);
+        Result r1 = new Result(1, 90);
+        Result r2 = new Result(1, 10);
+        Result r3 = new Result(1, 90);
+        Result r4 = new Result(1, 90);
+        Result r5 = new Result(1, 100);
+        Result r6 = new Result(1, 100);
+        Result r7 = new Result(2, 10);
+        list.add(r1);
+        list.add(r2);
+        list.add(r3);
+        list.add(r4);
+        list.add(r5);
+        list.add(r6);
+        list.add(r7);
+
+        Map<Integer, Double> res = new HighFive().getHighFive(list);
         for (int k: res.keySet()) {
             System.out.println(k + " " + res.get(k));
         }
