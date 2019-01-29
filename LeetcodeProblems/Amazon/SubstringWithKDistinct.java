@@ -1,9 +1,6 @@
 package Amazon;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SubstringWithKDistinct {
 
@@ -87,27 +84,31 @@ public class SubstringWithKDistinct {
      */
     public int findSubstringIII(String s, int k) {
         char[] chs = s.toCharArray();
-        int cnt = 0;
+        Set<String> set = new HashSet<>();
 
         for (int i = 0; i < chs.length - k + 1; i++) {
             int[] dict = new int[26];
             int tmp = 0;
+            String cur = "";
             for (int j = i; j < i + k; j++) {
                 char ch = chs[j];
+                cur += ch;
                 if (dict[ch - 'a'] == 0) {
                     tmp++;
                 }
                 dict[ch - 'a']++;
             }
-            if (tmp == k - 1) cnt++;
+            if (tmp == k) {
+                set.add(cur);
+            }
         }
-        return cnt;
+        return set.size();
     }
 
 
     public static void main(String[] args) {
-        String s = "abcdeefg";
-        int num = 3;
-        System.out.print(new SubstringWithKDistinct().findSubstringIII(s, num));
+        String s = "adfgkg";
+        int k = 2;
+        System.out.print(new SubstringWithKDistinct().findSubstringIII(s, k));
     }
 }
