@@ -43,7 +43,7 @@ public class MaximumAverageNode {
     public static void main(String[] args) {
         CategoryNode n1 = new CategoryNode(1);
         CategoryNode n21 = new CategoryNode(-5);
-        CategoryNode n22 = new CategoryNode(11);
+        CategoryNode n22 = new CategoryNode(-11);
         CategoryNode n31 = new CategoryNode(1);
         CategoryNode n32 = new CategoryNode(2);
         CategoryNode n33 = new CategoryNode(4);
