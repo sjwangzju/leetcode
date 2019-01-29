@@ -15,9 +15,11 @@ public class MaximumAverageNode {
     }
 
     public CategoryNode maximumAverage(CategoryNode root) {
+        if (root == null) return null;
+
         CategoryNode[] res = new CategoryNode[1];
         double[] max = new double[1];
-        max[0] = Double.MIN_VALUE;
+        max[0] = Double.NEGATIVE_INFINITY;
         search(root, max, res);
         return res[0];
     }
@@ -31,7 +33,7 @@ public class MaximumAverageNode {
             n[0] += search(c, max, res)[0];
             n[1] += search(c, max, res)[1];
         }
-        if (n[1] > 1 && (double) (n[0] / n[1]) > max[0]) {
+        if (n[1] > 1 && Double.compare((double) (n[0] / n[1]), max[0]) > 0) {
             max[0] = (double) (n[0] / n[1]);
             res[0] = root;
         }
@@ -39,13 +41,13 @@ public class MaximumAverageNode {
     }
 
     public static void main(String[] args) {
-        CategoryNode n1 = new CategoryNode(5);
-        CategoryNode n21 = new CategoryNode(6);
-        CategoryNode n22 = new CategoryNode(8);
-        CategoryNode n31 = new CategoryNode(7);
-        CategoryNode n32 = new CategoryNode(10);
-        CategoryNode n33 = new CategoryNode(3);
-        CategoryNode n34 = new CategoryNode(1);
+        CategoryNode n1 = new CategoryNode(1);
+        CategoryNode n21 = new CategoryNode(-5);
+        CategoryNode n22 = new CategoryNode(11);
+        CategoryNode n31 = new CategoryNode(1);
+        CategoryNode n32 = new CategoryNode(2);
+        CategoryNode n33 = new CategoryNode(4);
+        CategoryNode n34 = new CategoryNode(-2);
 
         n1.subCategoryNode.add(n21);
         n1.subCategoryNode.add(n22);
