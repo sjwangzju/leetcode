@@ -47,15 +47,16 @@ public class SubstringWithKDistinct {
 
 
     /**
-     * find all substring with k distinct characters
+     * substring len = any
+     * distinct character = k
      *
      * time: O(n^2), space: O(n)
      *
      * @param s
-     * @param num
+     * @param k
      * @return
      */
-    public int findSubstringII(String s, int num) {
+    public int findSubstringII(String s, int k) {
         char[] chs = s.toCharArray();
         int cnt = 0;
 
@@ -68,17 +69,45 @@ public class SubstringWithKDistinct {
                     tmp++;
                 }
                 dict[ch - 'a']++;
-                if (tmp == num) cnt++;
-                if (tmp > num) break;
+                if (tmp == k) cnt++;
+                if (tmp > k) break;
             }
         }
         return cnt;
     }
 
 
+    /**
+     * substring len = k
+     * distinct character = k - 1
+     *
+     * @param s
+     * @param k
+     * @return
+     */
+    public int findSubstringIII(String s, int k) {
+        char[] chs = s.toCharArray();
+        int cnt = 0;
+
+        for (int i = 0; i < chs.length - k + 1; i++) {
+            int[] dict = new int[26];
+            int tmp = 0;
+            for (int j = i; j < i + k; j++) {
+                char ch = chs[j];
+                if (dict[ch - 'a'] == 0) {
+                    tmp++;
+                }
+                dict[ch - 'a']++;
+            }
+            if (tmp == k - 1) cnt++;
+        }
+        return cnt;
+    }
+
+
     public static void main(String[] args) {
-        String s = "abcdefg";
-        int num = 2;
-        System.out.print(new SubstringWithKDistinct().findSubstringII(s, num));
+        String s = "abcdeefg";
+        int num = 3;
+        System.out.print(new SubstringWithKDistinct().findSubstringIII(s, num));
     }
 }
