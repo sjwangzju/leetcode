@@ -1,6 +1,10 @@
 package Amazon;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class HighFive {
 
@@ -55,10 +59,10 @@ public class HighFive {
     public static void main(String[] args) {
         List<Result> list = new LinkedList<>();
 
-        Result r1 = new Result(1, 90);
+        Result r1 = new Result(1, 95);
         Result r2 = new Result(1, 10);
-        Result r3 = new Result(1, 90);
-        Result r4 = new Result(1, 90);
+        Result r3 = new Result(1, 92);
+        Result r4 = new Result(1, 91);
         Result r5 = new Result(1, 100);
         Result r6 = new Result(1, 100);
         Result r7 = new Result(2, 10);
