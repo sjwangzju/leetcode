@@ -1,7 +1,5 @@
 package Google;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class TriangleSortedArray {
 
@@ -12,48 +10,41 @@ public class TriangleSortedArray {
      *
      * @param nums
      */
-    public void sort(int[] nums) {
+    public int[] sort(int[] nums) {
         int i = 0;
-        List<Integer> left = new LinkedList<>();
-        List<Integer> right = new LinkedList<>();
+        int[] res = new int[nums.length];
 
-        while (nums[i] < nums[i + 1] && i + 1 < nums.length) {
-            left.add(nums[i]);
+        while (nums[i] < nums[i + 1]) {
             i++;
-        }
-        left.add(nums[i++]);
-
-        for (int j = nums.length - 1; j >= i; j--) {
-            right.add(nums[j]);
         }
 
         int l = 0;
-        int r = 0;
+        int r = nums.length - 1;
         int p = 0;
-        while (l < left.size() && r < right.size()) {
-            if (left.get(l) < right.get(r)) {
-                nums[p] = left.get(l++);
+        while (l <= i && r > i) {
+            if (nums[l] < nums[r]) {
+                res[p] = nums[l++];
             } else {
-                nums[p] = right.get(r++);
+                res[p] = nums[r--];
             }
             p++;
         }
 
-        while (l < left.size()) {
-            nums[p++] = left.get(l++);
+        while (l <= i) {
+            res[p++] = nums[l++];
         }
 
-        while (r < right.size()) {
-            nums[p++] = right.get(r++);
+        while (r > i) {
+            res[p++] = nums[r--];
         }
 
-        return;
+        return res;
     }
 
     public static void main(String[] args) {
         int[] nums = {1,2,5,4,3};
-        new TriangleSortedArray().sort(nums);
-        for(int n: nums) {
+        int[] res = new TriangleSortedArray().sort(nums);
+        for(int n: res) {
             System.out.println(n);
         }
     }
