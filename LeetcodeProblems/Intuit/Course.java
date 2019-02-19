@@ -26,10 +26,12 @@ public class Course {
         }
     }
 
-    public String findMiddle(String[][] input) {
+
+    public void findMiddle(String[][] input) {
         Set<String> courses = new HashSet<>();
         Map<String, Integer> indegree = new HashMap<>();
-        Map<String, String> children = new HashMap<>();
+        Map<String, List<String>> children = new HashMap<>();
+        List<String> res = new LinkedList<>();
 
         for (String[] s: input) {
             courses.add(s[0]);
@@ -37,31 +39,41 @@ public class Course {
             if (!indegree.containsKey(s[0])) indegree.put(s[0], 0);
             if (!indegree.containsKey(s[1])) indegree.put(s[1], 0);
             indegree.put(s[1], indegree.getOrDefault(s[1], 0) + 1);
-            children.put(s[0], s[1]);
+
+            if (!children.containsKey(s[0])) {
+                children.put(s[0], new LinkedList<>());
+            }
+            children.get(s[0]).add(s[1]);
         }
 
-        Queue<String> q = new LinkedList<>();
+        Queue<String[]> q = new LinkedList<>();
         for (String s: indegree.keySet()) {
             if (indegree.get(s) == 0) {
-                q.offer(s);
+                q.offer(new String[]{s, s});
             }
         }
 
-        int cnt = 0;
-        int mid = (courses.size() + 1) / 2;
-        while (!q.isEmpty()) {
-            String cur = q.poll();
-            q.offer(children.get(cur));
-            cnt++;
-            if (cnt == mid) return cur;
+        while(!q.isEmpty()) {
+            String[] cur = q.poll();
+            if (!children.containsKey(cur[0])) {
+                res.add(cur[1]);
+            } else {
+                for (String n: children.get(cur[0])) {
+                    String[] tmp = new String[2];
+                    tmp[0] = n;
+                    tmp[1] = cur[1] + n;
+                    q.offer(tmp);
+                }
+            }
         }
-        return "";
+        for (String s: res) {
+            System.out.println(s + ", " + s.charAt((s.length() - 1) / 2));
+        }
+
     }
 
     public static void main(String[] args) {
-//        String[][] input = {{"58","A"},{"94","B"},{"17","A"},{"58","B"},{"17","B"},{"58","C"}};
-//        new Course().findCommonCourses(input);
-        String[][] input = {{"A","B"},{"C","D"},{"B","C"},{"E","F"},{"D","E"},{"F","G"}};
-        System.out.println(new Course().findMiddle(input));
+        String[][] input = {{"A","B"},{"B","C"},{"D","B"},{"B","F"},{"F","G"},{"F","H"},{"G","J"}};
+        new Course().findMiddle(input);
     }
 }
