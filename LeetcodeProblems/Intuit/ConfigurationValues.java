@@ -5,31 +5,39 @@ import java.util.*;
 public class ConfigurationValues {
 
 
+    /**
+     * time: O(NlogN), N is the number of different configurations
+     *
+     * space: O(N)
+     *
+     * @param input
+     */
     public void getValues(String[] input) {
         Map<String, Map<String, String>> map = new HashMap<>();
         Map<String, List<String>> adj = new HashMap<>();
         Map<String, Integer> indegree = new HashMap<>();
 
+        String s1 = "";
         for (String s: input) {
-            String[] strs = s.split("\n");
-            strs[0] = strs[0].substring(1, strs[0].length() - 1);
-            String s1 = strs[0];
-
-            if (strs[0].contains(":")) {
-                s1 = strs[0].split(":")[0];
-                String s2 = strs[0].split(":")[1];
-                if (!adj.containsKey(s2)) {
-                    adj.put(s2, new LinkedList<>());
+            if (!s.contains("=")) {
+                s = s.substring(1, s.length() - 1);
+                s1 = s;
+                if (s.contains(":")) {
+                    s1 = s.split(":")[0];
+                    String s2 = s.split(":")[1];
+                    if (!adj.containsKey(s2)) {
+                        adj.put(s2, new LinkedList<>());
+                    }
+                    adj.get(s2).add(s1);
+                    indegree.put(s1, indegree.getOrDefault(s1, 0) + 1);
                 }
-                adj.get(s2).add(s1);
-                indegree.put(s1, indegree.getOrDefault(s1, 0) + 1);
-            }
-            if (!indegree.containsKey(s1)) indegree.put(s1, 0);
-            map.put(s1, new HashMap<>());
-
-            for (int i = 1; i < strs.length; i++) {
-                strs[i].replace(" ","");
-                map.get(s1).put(strs[i].split("=")[0], strs[i].split("=")[1]);
+                if (!indegree.containsKey(s1)) {
+                    indegree.put(s1, 0);
+                }
+                map.put(s1, new HashMap<>());
+            } else {
+                s = s.replaceAll(" ", "");
+                map.get(s1).put(s.split("=")[0], s.split("=")[1]);
             }
         }
 
@@ -83,11 +91,11 @@ public class ConfigurationValues {
     }
 
     public static void main(String[] args) {
-//        String[] input = {"[base_server]\nram = 16G\ndisk = 15G", "[review_console:admin_console]",
-//                "[admin_console:base_server]\nram = 32G\nowner = root"};
-        String[] input = {"[staging_server:base_server]\nram = 8G\nenvname = Staging",
-                "[dev_server:staging_server]\nenvname = Dev", "[test_server:dev_server]\ndisk = 4G",
-                "[base_server]\nram = 16G\ndisk = 15G", "[qa_server:base_server]\nram = 4G"};
+        String[] input = {"[base_server]", "ram = 16G", "disk = 15G", "[review_console:admin_console]",
+                "[admin_console:base_server]", "ram = 32G", "owner = root"};
+//        String[] input = {"[staging_server:base_server]", "ram = 8G", "envname = Staging",
+//                "[dev_server:staging_server]", "envname = Dev", "[test_server:dev_server]", "disk = 4G",
+//                "[base_server]", "ram = 16G", "disk = 15G", "[qa_server:base_server]", "ram = 4G"};
         new ConfigurationValues().getValues(input);
     }
 }
