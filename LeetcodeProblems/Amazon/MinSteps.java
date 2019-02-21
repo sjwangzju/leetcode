@@ -2,6 +2,12 @@ package Amazon;
 
 public class MinSteps {
 
+    /**
+     * DFS - time: O(logN), space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public int findMinStep(int n) {
         return dfs(n);
     }
