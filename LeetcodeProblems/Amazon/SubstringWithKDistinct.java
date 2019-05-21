@@ -82,7 +82,7 @@ public class SubstringWithKDistinct {
      * @param k
      * @return
      */
-    public int findSubstringIII(String s, int k) {
+    public void findSubstringIII(String s, int k) {
         char[] chs = s.toCharArray();
         Set<String> set = new HashSet<>();
 
@@ -98,17 +98,20 @@ public class SubstringWithKDistinct {
                 }
                 dict[ch - 'a']++;
             }
-            if (tmp == k) {
+            if (tmp == k - 1) {
                 set.add(cur);
             }
         }
-        return set.size();
+        for (String ss: set) {
+            System.out.println(ss);
+        }
+        return;
     }
 
 
     public static void main(String[] args) {
-        String s = "adfgkg";
-        int k = 2;
-        System.out.print(new SubstringWithKDistinct().findSubstringIII(s, k));
+        String s = "democracy";
+        int k = 5;
+        new SubstringWithKDistinct().findSubstringIII(s, k);
     }
 }

@@ -1,47 +1,83 @@
 package Indeed;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class RootLeafMinCost {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
+    public static class Node {
+        List<Edge> edges;
+
+        public Node() {
+            this.edges = new LinkedList<>();
         }
     }
 
-    public int findMinCost(TreeNode root) {
-        int[] min = new int[1];
-        min[0] = Integer.MAX_VALUE;
+    public static class Edge {
+        Node endNode;
+        int cost;
 
-        dfs(root, min, 0);
-        return min[0];
+        public Edge(Node end, int cost) {
+            this.endNode = end;
+            this.cost = cost;
+        }
     }
 
-    public void dfs(TreeNode root, int[] min, int sum) {
-        if (root == null) {
+    int min = Integer.MAX_VALUE;
+
+    public List<Edge> minCost(Node root) {
+        if (root == null) return null;
+        List<Edge> res = new LinkedList<>();
+        List<Edge> tmp = new LinkedList<>();
+        dfs(res, tmp, root, 0);
+        return res;
+    }
+
+    public void dfs(List<Edge> res, List<Edge> tmp, Node n, int curCost) {
+        if (n == null) {
             return;
         }
-        if (root.left == null && root.right == null) {
-            min[0] = Math.min(min[0], root.val + sum);
+        if (n.edges.size() == 0) {
+            if (curCost < min) {
+                min = curCost;
+                res.clear();
+                res.addAll(tmp);
+            }
             return;
         }
-        dfs(root.left, min, sum + root.val);
-        dfs(root.right, min, sum + root.val);
+        List<Edge> list = n.edges;
+        for (Edge e: list) {
+            tmp.add(e);
+            dfs(res, tmp, e.endNode, curCost + e.cost);
+            tmp.remove(tmp.size() - 1);
+        }
     }
 
     public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t21 = new TreeNode(2);
-        TreeNode t22 = new TreeNode(10);
-        TreeNode t31 = new TreeNode(3);
-        TreeNode t32 = new TreeNode(-11);
-        TreeNode t33 = new TreeNode(-15);
+        Node n1 = new Node();
+        Node n21 = new Node();
+        Node n22 = new Node();
+        Node n23 = new Node();
+        Node n31 = new Node();
+        Node n32 = new Node();
 
-        t1.left = t21; t1.right = t22;
-        t21.left = t31; t22.left = t32; t22.right = t33;
-        System.out.println(new RootLeafMinCost().findMinCost(t1));
+        Edge e1 = new Edge(n21, -15);
+        Edge e2 = new Edge(n22, -5);
+        Edge e3 = new Edge(n23, 10);
+        Edge e4 = new Edge(n31, -1);
+        Edge e5 = new Edge(n32, 30);
+
+        n1.edges.add(e1);
+        n1.edges.add(e2);
+        n1.edges.add(e3);
+
+        n21.edges.add(e4);
+        n21.edges.add(e5);
+
+        List<Edge> list = new RootLeafMinCost().minCost(n1);
+        for (Edge e: list) {
+            System.out.println(e.cost);
+        }
     }
 
 }

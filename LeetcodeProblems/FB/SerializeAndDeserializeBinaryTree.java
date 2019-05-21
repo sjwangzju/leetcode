@@ -133,11 +133,11 @@ public class SerializeAndDeserializeBinaryTree {
         t21.right = t32;
         t31.left = t41;
 //        System.out.println(new SerializeAndDeserializeBinaryTree().getHeight(t1));
-//        String res = new SerializeAndDeserializeBinaryTree().serializeBFS(t1);
-        String res = new SerializeAndDeserializeBinaryTree().serializeDFS(t1);
+        String res = new SerializeAndDeserializeBinaryTree().serializeBFS(t1);
+//        String res = new SerializeAndDeserializeBinaryTree().serializeDFS(t1);
         System.out.println(res);
 ////        TreeNode root = new SerializeAndDeserializeBinaryTree().deserializeBFS(res);
-        TreeNode root = new SerializeAndDeserializeBinaryTree().deserializeDFS(res);
-        System.out.print(root.val);
+//        TreeNode root = new SerializeAndDeserializeBinaryTree().deserializeDFS(res);
+//        System.out.print(root.val);
     }
 }

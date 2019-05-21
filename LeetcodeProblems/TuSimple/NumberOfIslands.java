@@ -5,6 +5,12 @@ import java.util.Set;
 
 public class NumberOfIslands {
 
+    /**
+     * find number of distinct shapes of islands.
+     *
+     * @param matrix
+     * @return
+     */
     public int numIslands(char[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
         int row = matrix.length;
