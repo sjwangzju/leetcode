@@ -5,8 +5,9 @@ import java.util.PriorityQueue;
 
 
 /**
- * time: O(N), N is the num of intervals
+ * Sort by start time, and compare by end time
  *
+ * time: O(N), N is the num of intervals
  * space: O(N)
  */
 public class LC353_MeetingRoomsII_M {
