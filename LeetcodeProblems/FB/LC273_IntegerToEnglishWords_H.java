@@ -3,6 +3,8 @@ package FB;
 /**
  * non-negative integer, less than 2^31 - 1
  *
+ * corner case: 1. zero  2. trim()
+ *
  * Recursion
  * time: O(N), N is the num of digits
  * space: O(N), the depth of stack
