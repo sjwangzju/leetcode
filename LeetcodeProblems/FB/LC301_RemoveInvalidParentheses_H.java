@@ -12,7 +12,7 @@ import java.util.Set;
  * time: O(2^N) - worst case: "((((((("
  * space: O(N) - maximum recursion depth  of N
  */
-public class LC301_RemoveInvalidParentheses {
+public class LC301_RemoveInvalidParentheses_H {
     public List<String> removeInvalidParentheses(String s) {
         Set<String> res = new HashSet<>();
 
@@ -78,7 +78,7 @@ public class LC301_RemoveInvalidParentheses {
 
     public static void main(String[] args) {
         String s = "()())()";
-        System.out.println(new LC301_RemoveInvalidParentheses().removeInvalidParentheses(s));
+        System.out.println(new LC301_RemoveInvalidParentheses_H().removeInvalidParentheses(s));
     }
 
 }
