@@ -1,4 +1,4 @@
-package FB;
+package FullTime.FB;
 
 import java.util.HashSet;
 import java.util.LinkedList;
