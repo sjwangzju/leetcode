@@ -1,10 +1,13 @@
 package FullTime.FB;
 
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * time: O(N), N is the num of nodes in the tree
+ * space: O(N)
+ */
 public class LC297_SerializeAndDeserializeBinaryTree_H {
 
     public static class TreeNode {
