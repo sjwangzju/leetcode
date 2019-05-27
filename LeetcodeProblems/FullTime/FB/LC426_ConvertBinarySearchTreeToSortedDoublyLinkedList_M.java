@@ -9,7 +9,7 @@ package FullTime.FB;
  * space: O(N), depth of the recursive call stack -> best: O(logN), worst: O(N)
  *
  */
-public class LC426_ConvertBinarySearchTreeToSortedDoublyLinkedList {
+public class LC426_ConvertBinarySearchTreeToSortedDoublyLinkedList_M {
 
     static class Node {
         public int val;
@@ -60,7 +60,7 @@ public class LC426_ConvertBinarySearchTreeToSortedDoublyLinkedList {
         Node n22 = new Node(5, null, null);
         Node n1 = new Node(4, n21, n22);
 
-        Node tmp = new LC426_ConvertBinarySearchTreeToSortedDoublyLinkedList().treeToDoublyList(n1);
+        Node tmp = new LC426_ConvertBinarySearchTreeToSortedDoublyLinkedList_M().treeToDoublyList(n1);
         System.out.println(tmp.val);
     }
 }
