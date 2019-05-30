@@ -6,7 +6,7 @@ package FullTime.FB;
  * time: O(N), N is the num of nodes in the tree
  * space: O(lgN)~O(N), level of the tree
  */
-public class LC124_BinaryTreeMaximumPathSum {
+public class LC124_BinaryTreeMaximumPathSum_H {
 
     public static class TreeNode {
         int val;
@@ -43,6 +43,6 @@ public class LC124_BinaryTreeMaximumPathSum {
         t11.left = t21; t11.right = t22;
         t22.left = t31; t22.right = t32;
 
-        System.out.println(new LC124_BinaryTreeMaximumPathSum().maxPathSum(t11));
+        System.out.println(new LC124_BinaryTreeMaximumPathSum_H().maxPathSum(t11));
     }
 }
