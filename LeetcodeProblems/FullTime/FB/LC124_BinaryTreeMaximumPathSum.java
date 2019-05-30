@@ -1,7 +1,7 @@
 package FullTime.FB;
 
 /**
- * Binary tree recursion
+ * Binary tree recursion, keep track of the max sum
  *
  * time: O(N), N is the num of nodes in the tree
  * space: O(lgN)~O(N), level of the tree
