@@ -9,7 +9,7 @@ import java.util.*;
  * space: O(V+E)
  *
  */
-public class LC269_AlienDictionary {
+public class LC269_AlienDictionary_H {
 
     public String alienOrder(String[] words) {
         Map<Character, Integer> indegree = new HashMap<>();
@@ -75,6 +75,6 @@ public class LC269_AlienDictionary {
 
     public static void main(String[] args) {
         String[] words = {"wrt", "wrf", "er", "ett", "rftt"};
-        System.out.println(new LC269_AlienDictionary().alienOrder(words));
+        System.out.println(new LC269_AlienDictionary_H().alienOrder(words));
     }
 }
