@@ -6,7 +6,7 @@ package FullTime.FB;
  * time: O(logN)
  * space: O(1)
  */
-public class LC278_FirstBadVersion {
+public class LC278_FirstBadVersion_E {
 
     public int firstBadVersion(int n) {
         int lo = 1;
@@ -28,6 +28,6 @@ public class LC278_FirstBadVersion {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LC278_FirstBadVersion().firstBadVersion(5));
+        System.out.println(new LC278_FirstBadVersion_E().firstBadVersion(5));
     }
 }
