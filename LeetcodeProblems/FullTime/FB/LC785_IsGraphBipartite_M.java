@@ -1,15 +1,50 @@
 package FullTime.FB;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 /**
  * Solution1: Union Find
+ * time: O(E+V)
+ * space: O(V)
  *
+ * Solution2: DFS (stack)
  * time: O(E+V)
  * space: O(V)
  *
  */
 public class LC785_IsGraphBipartite_M {
 
-    public boolean isBipartite(int[][] graph) {
+    // DFS (stack)
+    public boolean isBipartiteI(int[][] graph) {
+        Map<Integer, Integer> map = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < graph.length; i++) {
+            if (!map.containsKey(i)) {
+                stack.push(i);
+                map.put(i, 1);
+            }
+
+            while (!stack.isEmpty()) {
+                int cur = stack.pop();
+                int tmp = map.get(cur);
+                for (int nei: graph[cur]) {
+                    if (!map.containsKey(nei)) {
+                        map.put(nei, -tmp);
+                        stack.push(nei);
+                    } else if (map.get(nei) == tmp) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    // Union Find
+    public boolean isBipartiteII(int[][] graph) {
         int[] parent = new int[100];
 
         for (int i = 0; i < parent.length; i++) {
@@ -39,6 +74,6 @@ public class LC785_IsGraphBipartite_M {
 
     public static void main(String[] args) {
         int[][] graph = new int[][]{{1,2,3},{0,2},{0,1,3},{0,2}};
-        System.out.println(new LC785_IsGraphBipartite_M().isBipartite(graph));
+        System.out.println(new LC785_IsGraphBipartite_M().isBipartiteI(graph));
     }
 }
