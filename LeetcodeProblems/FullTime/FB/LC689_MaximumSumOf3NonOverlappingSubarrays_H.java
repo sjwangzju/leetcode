@@ -1,6 +1,8 @@
 package FullTime.FB;
 
 /**
+ * DP
+ *
  * stp1: get sum of window size k
  * stp2: get max sum index from left
  * stp3: get max sum index from right
