@@ -21,17 +21,17 @@ public class LC416_PartitionEqualSubsetSum_M {
         return backtracking(sum, nums, 0, 0, new HashSet<>());
     }
 
-    public boolean backtracking(int sum, int[] nums, int cur, int i, Set<Integer> invalid) {
+    public boolean backtracking(int sum, int[] nums, int cur, int i, Set<Integer> visited) {
         if (cur == sum / 2) {
             return true;
         }
-        if (invalid.contains(cur) || i > nums.length || cur > sum / 2) {
+        if (visited.contains(cur) || i > nums.length || cur > sum / 2) {
             return false;
         }
-        invalid.add(cur);
+        visited.add(cur);
         for (int j = i; j < nums.length; j++) {
             cur += nums[j];
-            if (backtracking(sum, nums, cur, j + 1, invalid)) {
+            if (backtracking(sum, nums, cur, j + 1, visited)) {
                 return true;
             }
             cur -= nums[j];
