@@ -18,16 +18,9 @@ public class LC121_BestTimeToBuyAndSellStock_E {
             left[i] = min;
         }
 
-        int[] right = new int[l];
-        int max = Integer.MIN_VALUE;
-        for (int i = l - 1; i >= 0; i--) {
-            max = Math.max(max, prices[i]);
-            right[i] = max;
-        }
-
         int res = 0;
         for (int i = 0; i < l; i++) {
-            res = Math.max(res, right[i] - left[i]);
+            res = Math.max(res, prices[i] - left[i]);
         }
         return res;
     }
