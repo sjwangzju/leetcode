@@ -1,7 +1,7 @@
 package FullTime.FB;
 
 /**
- * Linked Node
+ * Linked List
  *
  * time: O(1)
  * space: O(k), k is the size of queue
