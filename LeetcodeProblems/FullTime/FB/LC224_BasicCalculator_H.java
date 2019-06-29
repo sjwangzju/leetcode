@@ -3,6 +3,8 @@ package FullTime.FB;
 import java.util.Stack;
 
 /**
+ * Stack: save result and sign before '('
+ *
  * time: O(N), N is len of s
  * space: O(N)
  */
