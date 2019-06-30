@@ -1,6 +1,5 @@
 package FullTime.FB;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +14,6 @@ public class LC78_Subsets_M {
     List<List<Integer>> res = new LinkedList<>();
     public List<List<Integer>> subsets(int[] nums) {
         if (nums == null || nums.length == 0) return res;
-        Arrays.sort(nums);
         backtracking(nums, 0, new LinkedList<>());
         return res;
     }
@@ -27,12 +25,9 @@ public class LC78_Subsets_M {
         }
 
         for (int j = i; j < nums.length; j++) {
-            // important: judge if nums[j] > cur.get(cur.size() - 1)
-            if (cur.size() == 0 || nums[j] > cur.get(cur.size() - 1)) {
-                cur.add(nums[j]);
-                backtracking(nums, i + 1, cur);
-                cur.remove(cur.size() - 1);
-            }
+            cur.add(nums[j]);
+            backtracking(nums, j + 1, cur);
+            cur.remove(cur.size() - 1);
         }
     }
 
