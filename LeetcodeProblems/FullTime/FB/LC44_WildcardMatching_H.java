@@ -1,7 +1,7 @@
 package FullTime.FB;
 
 /**
- * Similar to LC10
+ * DFS + Memorization (Similar to LC10)
  *
  * time: O(M*N)
  * space: O(M*N)
