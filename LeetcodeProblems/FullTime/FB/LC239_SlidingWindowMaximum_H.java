@@ -2,7 +2,7 @@ package FullTime.FB;
 
 
 /**
- * DP
+ * DP - left & right
  *
  * time: O(N)
  * space: O(N)
@@ -23,7 +23,7 @@ public class LC239_SlidingWindowMaximum_H {
             left[i] = i % k == 0? nums[i]: Math.max(left[i - 1], nums[i]);
 
             int tmp = len - i - 1;
-            right[tmp] = tmp % k == 0? nums[tmp]: Math.max(right[tmp + 1], nums[tmp]);
+            right[tmp] = (tmp + 1) % k == 0? nums[tmp]: Math.max(right[tmp + 1], nums[tmp]);
         }
 
         int[] res = new int[len - k + 1];
