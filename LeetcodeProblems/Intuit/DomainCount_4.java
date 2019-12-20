@@ -14,14 +14,15 @@ public class DomainCount_4 {
         Map<String, Integer> domainCnt = new HashMap<>();
 
         for (String domain: domains) {
-            int n = Integer.valueOf(domain.split(" ")[0]);
+            int n = Integer.parseInt(domain.split(" ")[0]);
             String curDomain = domain.split(" ")[1];
             domainCnt.put(curDomain, domainCnt.getOrDefault(curDomain, 0) + n);
 
-            while (curDomain.contains(".")) {
-                int index = curDomain.indexOf('.');
+            int index = curDomain.indexOf('.');
+            while (index != -1) {
                 curDomain = curDomain.substring(index + 1);
                 domainCnt.put(curDomain, domainCnt.getOrDefault(curDomain, 0) + n);
+                index = curDomain.indexOf('.');
             }
         }
 

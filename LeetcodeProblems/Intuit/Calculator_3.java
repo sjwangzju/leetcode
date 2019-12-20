@@ -6,12 +6,10 @@ import java.util.Stack;
 
 public class Calculator_3 {
 
-    /*************************************************************************************/
-
     // only contains digits , '+' , '-'
-
     // time: O(N)
     // space: O(1)
+    /*************************************************************************************/
     public int calculatorI(String input) {
         int sign = 1;
         int res = 0;
@@ -25,29 +23,25 @@ public class Calculator_3 {
                     tmp = 10 * tmp + input.charAt(i + 1) - '0';
                     i++;
                 }
+            } else if (ch == '+') {
+                res += sign * tmp;
+                sign = 1;
+                tmp = 0;
             } else {
-                switch (ch) {
-                    case '+':
-                        res += sign * tmp;
-                        sign = 1;
-                        break;
-                    case '-':
-                        res += sign * tmp;
-                        sign = -1;
-                        break;
-                }
+                res += sign * tmp;
+                sign = -1;
+                tmp = 0;
             }
         }
-        if (tmp != 0) res += sign * tmp;
+        res += sign * tmp;
         return res;
     }
 
-    /*************************************************************************************/
 
-    // contains digits , '+' , '-', '(', ')'
-
+    // Follow up 1: contains digits , '+' , '-', '(', ')'
     // time: O(N)
     // space: O(1)
+    /*************************************************************************************/
     public int calculatorII(String input) {
         int sign = 1;
         int res = 0;
@@ -62,46 +56,41 @@ public class Calculator_3 {
                     tmp = 10 * tmp + input.charAt(i + 1) - '0';
                     i++;
                 }
+            } else if (ch == '+') {
+                res += sign * tmp;
+                sign = 1;
+                tmp = 0;
+            } else if (ch == '-') {
+                res += sign * tmp;
+                sign = -1;
+                tmp = 0;
+            } else if (ch == '(') {
+                stack.push(res);
+                stack.push(sign);
+                sign = 1;
+                res = 0;
+                tmp = 0;
             } else {
-                switch (ch) {
-                    case '+':
-                        res += sign * tmp;
-                        sign = 1;
-                        break;
-                    case '-':
-                        res += sign * tmp;
-                        sign = -1;
-                        break;
-                    case '(':
-                        stack.push(res);
-                        stack.push(sign);
-                        sign = 1;
-                        res = 0;
-                        break;
-                    case ')':
-                        res += sign * tmp;
-                        res *= stack.pop();
-                        res += stack.pop();
-                        break;
-                }
+                res += sign * tmp;
+                res *= stack.pop();
+                res += stack.pop();
                 tmp = 0;
             }
         }
-        if (tmp != 0) res += sign * tmp;
+        res += sign * tmp;
         return res;
     }
 
-    /*************************************************************************************/
 
-    // contains digits, variables , '+' , '-', '(', ')'
-
+    // Follow up 2: contains digits, variables , '+' , '-', '(', ')'
     // time: O(N)
     // space: O(1)
+    /*************************************************************************************/
     public String calculatorIII(String input, Map<String, Integer> map) {
         int res = 0;
         int sign = 1;
         int tmp = 0;
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         Stack<Integer> stack = new Stack<>();
         Stack<Map<String, Integer>> stack2 = new Stack<>();
@@ -117,15 +106,16 @@ public class Calculator_3 {
                 }
 
             } else if (Character.isLetter(ch)) {
-                String s = ch + "";
+                StringBuilder s = new StringBuilder();
+                s.append(ch);
                 while (i + 1 < input.length() && Character.isLetter(input.charAt(i + 1))) {
-                    s += input.charAt(i + 1);
+                    s.append(input.charAt(i + 1));
                     i++;
                 }
-                if (map.containsKey(s)) {
-                    tmp = map.get(s);
+                if (map.containsKey(s.toString())) {
+                    tmp = map.get(s.toString());
                 } else {
-                    var.put(s, var.getOrDefault(ch, 0) + sign);
+                    var.put(s.toString(), var.getOrDefault(s.toString(), 0) + sign);
                 }
 
             } else {
@@ -152,8 +142,8 @@ public class Calculator_3 {
                         res *= lastSign;
                         res += stack.pop();
                         Map<String, Integer> lastVar = stack2.pop();
-                        for (String c: var.keySet()) {
-                            lastVar.put(c, lastVar.getOrDefault(c, 0) + lastSign * var.get(c));
+                        for (String s: var.keySet()) {
+                            lastVar.put(s, lastVar.getOrDefault(s, 0) + lastSign * var.get(s));
                         }
                         var = lastVar;
                         break;
@@ -161,21 +151,21 @@ public class Calculator_3 {
                 tmp = 0;
             }
         }
-        if (tmp != 0) res += sign * tmp;
+        res += sign * tmp;
 
 
         if (res != 0)
-        str += res + "";
-        for (String ch: var.keySet()) {
-            int freq = var.get(ch);
+        str.append(res);
+        for (String s: var.keySet()) {
+            int freq = var.get(s);
             if (freq != 0) {
-                if (freq > 0) str += "+";
-                if (freq < 0) str += "-";
-                if (Math.abs(freq) != 1) str += Math.abs(freq);
-                str += ch;
+                if (freq > 0) str.append("+");
+                if (freq < 0) str.append("-");
+                if (Math.abs(freq) != 1) str.append(Math.abs(freq));
+                str.append(s);
             }
         }
-        return str;
+        return str.toString();
     }
 
     public static void main(String[] args) {
@@ -191,7 +181,7 @@ public class Calculator_3 {
         map.put("mn",1);
         map.put("b",2);
         map.put("c",3);
-        String input3 = "2+b-c-(5-mn-p)+4";
+        String input3 = "2+b-c-(5-mn-p)+4+e";
         System.out.println(new Calculator_3().calculatorIII(input3, map));
 
     }

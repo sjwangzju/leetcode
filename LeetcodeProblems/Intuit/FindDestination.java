@@ -4,17 +4,20 @@ import java.util.*;
 
 public class FindDestination {
 
+    HashMap<String, Integer> indegree;
+    HashMap<String, List<String>> adj;
+    HashMap<String, Set<String>> res;
+
     public void findDest(String[] strs) {
-        Set<String> loc = new HashSet<>();
-        HashMap<String, Integer> indegree = new HashMap<>();
-        HashMap<String, List<String>> adj = new HashMap<>();
-        HashMap<String, Set<String>> res = new HashMap<>();
+        indegree = new HashMap<>();
+        adj = new HashMap<>();
+        res = new HashMap<>();
 
         for (String s: strs) {
             String s1 = s.split(" ")[0];
             String s2 = s.split(" ")[1];
-            loc.add(s1);
-            loc.add(s2);
+            if (!indegree.containsKey(s1)) indegree.put(s1, 0);
+            if (!indegree.containsKey(s2)) indegree.put(s2, 0);
         }
 
         for (String s: strs) {
@@ -24,11 +27,10 @@ public class FindDestination {
                 adj.put(s1, new LinkedList<>());
             }
             adj.get(s1).add(s2);
-            if (!indegree.containsKey(s1)) indegree.put(s1, 0);
-            indegree.put(s2, indegree.getOrDefault(s2, 0) + 1);
+            indegree.put(s2, indegree.get(s2) + 1);
         }
 
-        List<String> start = new LinkedList<>();
+        List<String> start = new ArrayList<>();
         for (String s: indegree.keySet()) {
             if (indegree.get(s) == 0) {
                 start.add(s);
@@ -37,7 +39,8 @@ public class FindDestination {
 
         for (String s: start) {
             Set<String> tmp = new HashSet<>();
-            find(s, adj, tmp);
+//                find(s, adj, tmp);
+            getEnds(s, tmp);
             res.put(s, tmp);
         }
 
@@ -49,10 +52,32 @@ public class FindDestination {
             }
             System.out.println();
         }
-
-        return;
     }
 
+    public void getEnds(String s, Set<String> set) {
+        Queue<String> q = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        q.offer(s);
+
+        while (!q.isEmpty()) {
+            String cur = q.poll();
+            visited.add(cur);
+
+            List<String> neigh = adj.getOrDefault(cur, new ArrayList<>());
+            if (neigh.size() == 0) {
+                set.add(cur);
+                continue;
+            }
+            for (String n : neigh) {
+                indegree.put(n, indegree.get(n) - 1);
+                if (indegree.get(n) == 0 && !visited.contains(n)) {
+                    q.offer(n);
+                }
+            }
+        }
+    }
+
+    // dfs
     public void find(String cur, HashMap<String, List<String>> adj, Set<String> set) {
         if (!adj.containsKey(cur)) {
             set.add(cur);

@@ -14,15 +14,15 @@ public class FindIsland_5 {
     // time: O(M * N)
     // space: O(M * N)
     public List<int[]> findIsland(int[][] matrix) {
-        int row = matrix.length;
-        int col = matrix[0].length;
+        int m = matrix.length;
+        int n = matrix[0].length;
         List<int[]> list = new LinkedList<>();
-        boolean[][] visited = new boolean[row][col];
+        boolean[][] visited = new boolean[m][n];
 
 //        Set<String> shapes = new HashSet<>();
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
                     int[] res = {-1,-1,-1,-1};
                     res[0] = i;
@@ -80,7 +80,7 @@ public class FindIsland_5 {
         visited[i][j] = true;
         matrix[i][j] = 1;
 
-        sb.append(x + "" + y);
+        sb.append(x).append(y);
 
         if (i > tmp[0] || j > tmp[1]) {
             tmp[0] = i;
